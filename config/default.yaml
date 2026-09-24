@@ -1,0 +1,56 @@
+# 示例配置副本。打包内置默认值见 src/laya_thalamus/resources/default.yaml
+
+model:
+  backend: auto
+  # HF repo id OR local path (hub root / checkpoint / .../multilingual)
+  name: convaiinnovations/laya-multilingual
+  device: auto
+  timeout_ms: 2000
+  hard_fail_on_timeout: true
+  hard_fail_on_exception: true
+  timeout_hard_fail_backends: [laya]
+
+thresholds:
+  choice_confidence: 0.55
+  noul_confidence: 0.60
+  noul_true_threshold: 0.5
+  score_low: 3.0
+  score_high: 7.0
+  top_k: 3
+
+circuit_breaker:
+  max_tool_rounds: 5
+  max_same_tool_repeats: 2
+
+context:
+  max_chars: 1500
+  keep_tail: true
+
+tools:
+  max_count: 20
+  blacklist: []
+  whitelist: []
+
+fallback:
+  enabled: true
+  mode: auto
+  llm:
+    base_url: null
+    api_key: null
+    model: null
+    timeout_s: 20
+
+logging:
+  enabled: true
+  level: INFO
+  json_path: null
+  otel: false
+
+cache:
+  enabled: false
+  ttl_s: 30
+  max_size: 1024
+
+server:
+  host: 0.0.0.0
+  port: 8080

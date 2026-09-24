@@ -1,0 +1,63 @@
+# Laya Thalamus -default configuration (V1)
+
+model:
+  # mock = keyword demo (NOT production)
+  # laya = official System-1 weights (pip install laya)
+  # llm  = OpenAI-compatible chat as the primary router (for comparison)
+  # auto = laya if installed, else mock
+  backend: auto
+  # HF repo id, OR local path to hub root / single checkpoint / .../multilingual
+  # e.g. /path/to/laya/multilingual  or  convaiinnovations/laya-multilingual
+  name: convaiinnovations/laya-multilingual
+  device: auto          # auto | cpu | cuda | mps
+  timeout_ms: 2000      # CPU Laya budget; see POLICY.md -does NOT hard-fail llm* by default
+  hard_fail_on_timeout: true
+  hard_fail_on_exception: true
+  timeout_hard_fail_backends: [laya]
+
+thresholds:
+  choice_confidence: 0.55
+  noul_confidence: 0.60
+  noul_true_threshold: 0.5
+  score_low: 3.0
+  score_high: 7.0
+  top_k: 3
+
+circuit_breaker:
+  max_tool_rounds: 5
+  max_same_tool_repeats: 2
+
+context:
+  max_chars: 1500
+  keep_tail: true
+
+tools:
+  max_count: 20
+  blacklist: []
+  whitelist: []
+
+fallback:
+  enabled: true
+  # auto: use LLM if LAYA_LLM_BASE_URL / OPENAI_API_KEY / VLLM_BASE_URL is set
+  # llm | heuristic | none
+  mode: auto
+  llm:
+    base_url: null      # e.g. http://127.0.0.1:8000/v1  or https://api.openai.com/v1
+    api_key: null
+    model: null         # default: env LAYA_LLM_MODEL / OPENAI_MODEL / gpt-4o-mini
+    timeout_s: 20
+
+logging:
+  enabled: true
+  level: INFO
+  json_path: null
+  otel: false
+
+cache:
+  enabled: false
+  ttl_s: 30
+  max_size: 1024
+
+server:
+  host: 0.0.0.0
+  port: 8080

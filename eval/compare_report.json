@@ -1,0 +1,280 @@
+{
+  "dataset": "traces.json",
+  "n": 56,
+  "laya_model": "<local-laya-multilingual>",
+  "llm_models": [
+    "deepseek-v4-flash",
+    "deepseek-v4-pro",
+    "deepseek-v4-pro-0813",
+    "deepseek-v3.2",
+    "deepseek-v3.1",
+    "qwen3.8-max"
+  ],
+  "backends": [
+    {
+      "backend": "random",
+      "n": 56,
+      "tool_accuracy": 0.2143,
+      "avg_latency_ms": 0.0,
+      "note": "uniform random over gold label set — lower bound"
+    },
+    {
+      "n": 56,
+      "tool_accuracy": 0.8929,
+      "action_accuracy": 0.9107,
+      "noul_accuracy": 0.9464,
+      "score_band_accuracy": 0.9333,
+      "per_category_accuracy": {
+        "direct": 1.0,
+        "calculator": 1.0,
+        "after_tool": 1.0,
+        "search": 0.5833,
+        "after_tool_fail": 1.0,
+        "code": 1.0,
+        "rag": 0.8571
+      },
+      "tool_distribution_pred": {
+        "none": 25,
+        "calculator": 7,
+        "web_search": 8,
+        "code_interpreter": 9,
+        "rag_retrieve": 7
+      },
+      "avg_latency_ms": 0.08,
+      "backend": "mock",
+      "error_count": 6,
+      "caveat": "If backend=mock, tool_accuracy measures the keyword heuristic against human labels — it is NOT a Laya model metric."
+    },
+    {
+      "n": 56,
+      "tool_accuracy": 0.5536,
+      "action_accuracy": 0.7679,
+      "noul_accuracy": 0.75,
+      "score_band_accuracy": 0.5333,
+      "per_category_accuracy": {
+        "direct": 0.3333,
+        "calculator": 1.0,
+        "after_tool": 0.0,
+        "search": 0.4167,
+        "after_tool_fail": 1.0,
+        "code": 0.875,
+        "rag": 1.0
+      },
+      "tool_distribution_pred": {
+        "web_search": 12,
+        "none": 5,
+        "rag_retrieve": 16,
+        "calculator": 12,
+        "code_interpreter": 11
+      },
+      "avg_latency_ms": 473.55,
+      "backend": "laya:cpu",
+      "error_count": 25,
+      "device": "cpu",
+      "fallback": false,
+      "fallback_rate": 0.0
+    },
+    {
+      "n": 56,
+      "tool_accuracy": 0.6429,
+      "action_accuracy": 0.7857,
+      "noul_accuracy": 0.7857,
+      "score_band_accuracy": 0.5333,
+      "per_category_accuracy": {
+        "direct": 0.5556,
+        "calculator": 1.0,
+        "after_tool": 0.1818,
+        "search": 0.4167,
+        "after_tool_fail": 1.0,
+        "code": 1.0,
+        "rag": 1.0
+      },
+      "tool_distribution_pred": {
+        "none": 10,
+        "web_search": 9,
+        "rag_retrieve": 14,
+        "calculator": 11,
+        "code_interpreter": 12
+      },
+      "avg_latency_ms": 298.18,
+      "backend": "laya+fallback:cpu",
+      "error_count": 20,
+      "device": "cpu",
+      "fallback": true,
+      "fallback_rate": 0.1607
+    },
+    {
+      "n": 56,
+      "tool_accuracy": 0.4464,
+      "action_accuracy": 0.0357,
+      "noul_accuracy": 0.5893,
+      "score_band_accuracy": null,
+      "per_category_accuracy": {
+        "direct": 1.0,
+        "calculator": 0.4,
+        "after_tool": 1.0,
+        "search": 0.0833,
+        "after_tool_fail": 0.0,
+        "code": 0.125,
+        "rag": 0.1429
+      },
+      "tool_distribution_pred": {
+        "none": 51,
+        "calculator": 2,
+        "web_search": 1,
+        "code_interpreter": 1,
+        "rag_retrieve": 1
+      },
+      "avg_latency_ms": 2827.35,
+      "backend": "llm:deepseek-v4-flash",
+      "error_count": 31,
+      "caveat": "If backend=mock, tool_accuracy measures the keyword heuristic against human labels — it is NOT a Laya model metric.",
+      "llm_model": "deepseek-v4-flash"
+    },
+    {
+      "n": 56,
+      "tool_accuracy": 0.3571,
+      "action_accuracy": 0.0,
+      "noul_accuracy": 0.6429,
+      "score_band_accuracy": null,
+      "per_category_accuracy": {
+        "direct": 1.0,
+        "calculator": 0.0,
+        "after_tool": 1.0,
+        "search": 0.0,
+        "after_tool_fail": 0.0,
+        "code": 0.0,
+        "rag": 0.0
+      },
+      "tool_distribution_pred": {
+        "none": 56
+      },
+      "avg_latency_ms": 3551.55,
+      "backend": "llm:deepseek-v4-pro",
+      "error_count": 36,
+      "caveat": "If backend=mock, tool_accuracy measures the keyword heuristic against human labels — it is NOT a Laya model metric.",
+      "llm_model": "deepseek-v4-pro"
+    },
+    {
+      "n": 56,
+      "tool_accuracy": 0.3571,
+      "action_accuracy": 0.0,
+      "noul_accuracy": 0.6429,
+      "score_band_accuracy": null,
+      "per_category_accuracy": {
+        "direct": 1.0,
+        "calculator": 0.0,
+        "after_tool": 1.0,
+        "search": 0.0,
+        "after_tool_fail": 0.0,
+        "code": 0.0,
+        "rag": 0.0
+      },
+      "tool_distribution_pred": {
+        "none": 56
+      },
+      "avg_latency_ms": 3446.48,
+      "backend": "llm:deepseek-v4-pro-0813",
+      "error_count": 36,
+      "caveat": "If backend=mock, tool_accuracy measures the keyword heuristic against human labels — it is NOT a Laya model metric.",
+      "llm_model": "deepseek-v4-pro-0813"
+    },
+    {
+      "n": 56,
+      "tool_accuracy": 0.4464,
+      "action_accuracy": 0.0536,
+      "noul_accuracy": 0.5714,
+      "score_band_accuracy": null,
+      "per_category_accuracy": {
+        "direct": 1.0,
+        "calculator": 0.2,
+        "after_tool": 1.0,
+        "search": 0.3333,
+        "after_tool_fail": 0.0,
+        "code": 0.0,
+        "rag": 0.0
+      },
+      "tool_distribution_pred": {
+        "none": 51,
+        "calculator": 1,
+        "web_search": 4
+      },
+      "avg_latency_ms": 2679.13,
+      "backend": "llm:deepseek-v3.2",
+      "error_count": 31,
+      "caveat": "If backend=mock, tool_accuracy measures the keyword heuristic against human labels — it is NOT a Laya model metric.",
+      "llm_model": "deepseek-v3.2"
+    },
+    {
+      "n": 56,
+      "tool_accuracy": 0.875,
+      "action_accuracy": 0.3571,
+      "noul_accuracy": 0.4286,
+      "score_band_accuracy": null,
+      "per_category_accuracy": {
+        "direct": 1.0,
+        "calculator": 1.0,
+        "after_tool": 1.0,
+        "search": 0.8333,
+        "after_tool_fail": 0.0,
+        "code": 0.875,
+        "rag": 1.0
+      },
+      "tool_distribution_pred": {
+        "none": 27,
+        "calculator": 5,
+        "web_search": 10,
+        "code_interpreter": 7,
+        "rag_retrieve": 7
+      },
+      "avg_latency_ms": 1993.65,
+      "backend": "llm:deepseek-v3.1",
+      "error_count": 7,
+      "caveat": "If backend=mock, tool_accuracy measures the keyword heuristic against human labels — it is NOT a Laya model metric.",
+      "llm_model": "deepseek-v3.1"
+    },
+    {
+      "n": 56,
+      "tool_accuracy": 0.4107,
+      "action_accuracy": 0.0179,
+      "noul_accuracy": 0.6071,
+      "score_band_accuracy": null,
+      "per_category_accuracy": {
+        "direct": 1.0,
+        "calculator": 0.2,
+        "after_tool": 1.0,
+        "search": 0.0,
+        "after_tool_fail": 0.0,
+        "code": 0.125,
+        "rag": 0.1429
+      },
+      "tool_distribution_pred": {
+        "none": 53,
+        "calculator": 1,
+        "code_interpreter": 1,
+        "rag_retrieve": 1
+      },
+      "avg_latency_ms": 2726.44,
+      "backend": "llm:qwen3.8-max",
+      "error_count": 33,
+      "caveat": "If backend=mock, tool_accuracy measures the keyword heuristic against human labels — it is NOT a Laya model metric.",
+      "llm_model": "qwen3.8-max"
+    }
+  ],
+  "how_to_read": {
+    "mock": "Keyword heuristic — not a product metric.",
+    "laya:cpu": "Bare System-1 on CPU (fallback off). Latency varies with warm/cold (~0.5–1s).",
+    "laya+fallback:cpu": "Product path on this host: heuristic fallback (no LLM keys). With LAYA_LLM_* configured, low-confidence / hard-fail escalate to LLM.",
+    "laya:cuda": "Fill via --device cuda when a GPU is available.",
+    "llm:*": "Chat model as primary router (cost/latency baseline).",
+    "random": "Chance-level lower bound."
+  },
+  "device": "cpu",
+  "with_fallback": true,
+  "cuda_measured": false,
+  "notes": [
+    "Laya CPU / Laya+fallback measured on publish host (no CUDA, no LLM keys).",
+    "laya+fallback used heuristic (mode=auto, LLM not configured).",
+    "GPU latency: run thalamus compare --device cuda --with-fallback --skip-llm"
+  ]
+}

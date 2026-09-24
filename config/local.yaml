@@ -1,0 +1,48 @@
+# Local weights example — copy and edit paths, then:
+#   thalamus serve --config config/local.yaml
+
+model:
+  backend: laya
+  # Hub root (english + multilingual + typed-decisions) or a single checkpoint dir
+  name: /path/to/laya/multilingual
+  device: auto
+  timeout_ms: 30000
+
+thresholds:
+  choice_confidence: 0.55
+  noul_confidence: 0.60
+  noul_true_threshold: 0.5
+  score_low: 3.0
+  score_high: 7.0
+  top_k: 3
+
+circuit_breaker:
+  max_tool_rounds: 5
+  max_same_tool_repeats: 2
+
+context:
+  max_chars: 1500
+  keep_tail: true
+
+tools:
+  max_count: 20
+  blacklist: []
+  whitelist: []
+
+fallback:
+  enabled: true
+  mode: auto
+  llm:
+    base_url: null
+    api_key: null
+    model: null
+    timeout_s: 20
+
+logging:
+  enabled: true
+  level: INFO
+  json_path: null
+
+server:
+  host: 0.0.0.0
+  port: 8080
