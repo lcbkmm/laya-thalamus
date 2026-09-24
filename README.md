@@ -52,36 +52,43 @@ print(d.selected_tool, d.action, d.summary())
 
 Gold set **n=100 × 2** (Chinese + English; JEV-like `state` / `questions` / `answers`; incl. post-tool turns).
 
-```bash
-thalamus compare --lang zh --with-fallback --skip-llm
-thalamus compare --lang en --with-fallback --skip-llm
-```
+Protocol: both models answer the same gold `state` + `questions` (typed decisions). Measured 2026-09-24.
 
-> Benchmark numbers below were measured on an earlier **n=56** Chinese slice; re-run compare on `traces.zh.json` / `traces.en.json` to refresh.
-
-| Backend | Tool Acc | CPU latency | GPU | Role |
-|---------|---------:|------------:|:---:|------|
-| **Laya + fallback** | **64.3%** | **~0.30 s** | — | **Product path** |
-| Laya bare | 55.4% | ~0.47 s | — | Fallback off |
-| deepseek-v3.1 | 87.5% | ~2.0 s | — | LLM-as-router baseline |
-| Random | 21.4% | — | — | Chance floor |
-| Keyword mock | 89.3% | &lt;1 ms | — | CI / demo only — **not** a product metric |
+| Lang | Backend | Tool Acc | Noul Acc | Score Acc | Latency |
+|------|---------|---------:|---------:|----------:|--------:|
+| **zh** | **JEV** (`typesafe/jev-1.13`) | **98%** | 83% | 93% | ~1.27 s |
+| zh | Laya (`laya-multilingual`) | 58% | 39% | 25% | **~0.24 s** |
+| **en** | **JEV** (`typesafe/jev-1.13`) | **97%** | 66% | 86% | ~1.33 s |
+| en | Laya (`laya-multilingual`) | 65% | 79% | 36% | **~0.25 s** |
 
 <details>
 <summary><b>How to read these numbers</b></summary>
 
 | Row | Meaning |
 |-----|---------|
-| **Laya + fallback** | Low-confidence / hard-fail → LLM if `LAYA_LLM_*` set, else heuristic. **+9 pp** vs bare on this set. |
-| **Laya bare** | System-1 alone — honest local ceiling. |
-| **CPU / GPU** | CPU measured on publish host (~0.5 s warm; cold can approach ~1 s). GPU blank (no CUDA) — fill with `--device cuda`. |
-| **mock** | Keyword heuristic tuned to this set. Do not cite as model skill. |
+| **JEV** | OpenRouter Decisions API (`typesafe/jev-1.13`) on gold `state` / `questions`. Stronger tool choice; cloud RTT. |
+| **Laya** | Local System-1 (`convaiinnovations/laya-multilingual`), fallback **off**. Lower latency; room to improve on this gold set. |
+| **Noul / Score** | Sufficient (`noul`) and credibility band accuracy where gold labels exist. |
 
-Reproduce: [`eval/compare_report.json`](eval/compare_report.json) · `thalamus compare --with-fallback --skip-llm`
+Reproduce:
+
+```bash
+# needs OPENROUTER_API_KEY for JEV; local [laya] weights for Laya
+python eval/compare_jev_laya.py --lang both --out eval/compare_jev_laya_report.json
+```
+
+Report: [`eval/compare_jev_laya_report.json`](eval/compare_jev_laya_report.json)
+
+Product-path sweep (Laya ± fallback / mock, no JEV):
+
+```bash
+thalamus compare --lang zh --with-fallback --skip-llm
+thalamus compare --lang en --with-fallback --skip-llm
+```
 
 </details>
 
-> Goal: **System-1 on the hot path**, fallback on edges — not “always beat the LLM”.
+> Goal: **System-1 on the hot path**, fallback on edges — not “always beat the cloud decision model”.
 
 ---
 
@@ -192,21 +199,21 @@ The thalamus is the brain’s fast signal relay — this project is that relay f
 </details>
 
 <details>
-<summary><b>Why not ask GPT every time?</b></summary>
+<summary><b>Why not ask GPT / JEV every time?</b></summary>
 
-Often more accurate, also expensive and slow. Thalamus keeps System-1 on the hot path (~0.5 s CPU here) and falls back when needed.
+JEV hits ~97–98% tool acc on this gold set, but ~1.3 s cloud RTT. Thalamus keeps local System-1 on the hot path (~0.25 s here) and falls back when needed.
 </details>
 
 <details>
-<summary><b>Why is bare Laya ~55%?</b></summary>
+<summary><b>Why is bare Laya ~58–65%?</b></summary>
 
-Weak on post-tool “stop calling tools” turns. Enable fallback → **64.3%** here (higher with a real LLM configured).
+Weakest on post-tool “stop calling tools” turns (and some zh search/direct). See category breakdown in [`eval/compare_jev_laya_report.json`](eval/compare_jev_laya_report.json). Enable product fallback for higher accuracy.
 </details>
 
 <details>
-<summary><b>Is mock 89% inflated?</b></summary>
+<summary><b>Is keyword mock a product metric?</b></summary>
 
-Yes — heuristic. **Not a product metric.**
+No — heuristic for CI / demo only.
 </details>
 
 <details>

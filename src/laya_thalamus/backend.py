@@ -100,6 +100,31 @@ _RAG_PAT = re.compile(
 )
 _TRANSLATE_PAT = re.compile(r"(翻译|translate|译成)", re.I)
 
+_TOOL_RESULT_MARKERS = ("Tool result:", "工具结果")
+_QUERY_PREFIXES = ("User query: ", "用户问题：", "用户问题:")
+_FAIL_PAT = re.compile(
+    r"(?i)FAILED|失败|\berror\b|错误|exception|quota|超时|溢出|不可用|未匹配"
+)
+
+
+def _tool_result_tail(state: str) -> str | None:
+    for marker in _TOOL_RESULT_MARKERS:
+        if marker in state:
+            return state.split(marker, 1)[-1]
+    return None
+
+
+def _has_tool_result(state: str) -> bool:
+    return _tool_result_tail(state) is not None
+
+
+def _query_line(state: str) -> str:
+    line = state.split("\n", 1)[0]
+    for prefix in _QUERY_PREFIXES:
+        if prefix in line:
+            return line.split(prefix, 1)[-1].strip()
+    return line.strip()
+
 
 def _softmax(scores: dict[str, float]) -> dict[str, float]:
     if not scores:
@@ -226,11 +251,9 @@ class MockBackend(DecisionBackend):
             scores["rag_retrieve"] = max(scores["rag_retrieve"], intent_boosts["rag"])
 
         # Any tool result ->prefer finishing (none) unless result looks like an error
-        if "Tool result:" in state:
-            result_tail = state.split("Tool result:")[-1]
-            failed = bool(
-                re.search(r"(?i)FAILED|\berror\b|失败|exception|quota", state)
-            )
+        result_tail = _tool_result_tail(state)
+        if result_tail is not None:
+            failed = bool(_FAIL_PAT.search(state))
             if failed:
                 pass
             else:
@@ -244,11 +267,9 @@ class MockBackend(DecisionBackend):
         return ChoiceResult(choice=best, probabilities=probs, confidence=conf)
 
     def _noul(self, state: str) -> NoulResult:
-        result = ""
-        if "Tool result:" in state:
-            result = state.split("Tool result:")[-1].strip()
+        result = (_tool_result_tail(state) or "").strip()
         has_result = bool(result)
-        query_line = state.split("\n")[0].replace("User query: ", "")
+        query_line = _query_line(state)
         trivial = bool(
             re.search(
                 r"^(你好|hello|hi|谢谢|thanks)[\s!->。]*$",
@@ -263,7 +284,7 @@ class MockBackend(DecisionBackend):
             or _RAG_PAT.search(state)
         )
         if has_result:
-            if re.search(r"失败|error|exception", result, re.I):
+            if _FAIL_PAT.search(result):
                 p = 0.2
             elif re.search(r"结果|result|\d|```|命中|摘要", result, re.I):
                 p = 0.9
@@ -278,13 +299,11 @@ class MockBackend(DecisionBackend):
         return NoulResult(noul=p, confidence=0.75)
 
     def _score(self, state: str, score_max: int) -> ScoreResult:
-        result = ""
-        if "Tool result:" in state:
-            result = state.split("Tool result:")[-1]
-        query = state.split("\n")[0]
+        result = _tool_result_tail(state) or ""
+        query = _query_line(state)
         if not result.strip():
             return ScoreResult(score=2.0, confidence=0.6, distribution=[])
-        if re.search(r"失败|error|exception", result, re.I):
+        if _FAIL_PAT.search(result):
             return ScoreResult(score=2.0, confidence=0.7, distribution=[])
 
         # Strong signals for common mock / real tool outputs
@@ -459,9 +478,12 @@ class LayaBackend(DecisionBackend):
 
         tools = tools or []
         questions: dict[str, Any] = {}
-        has_result = "Tool result" in state
+        has_result = _has_tool_result(state)
         result_failed = bool(
-            re.search(r"(?i)status:\s*FAILED|\berror\b|失败|exception|quota exceeded", state)
+            re.search(
+                r"(?i)status:\s*FAILED|状态：失败|\berror\b|错误|失败|exception|quota exceeded",
+                state,
+            )
         )
 
         if need_choice and tools:

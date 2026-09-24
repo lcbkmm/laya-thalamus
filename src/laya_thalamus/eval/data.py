@@ -41,7 +41,7 @@ def default_traces_path(lang: Lang = DEFAULT_LANG) -> Path:
 
 
 def _query_from_state(state: str) -> str:
-    for prefix in ("User query:", "User:", "Query:"):
+    for prefix in ("User query:", "用户问题：", "用户问题:", "User:", "Query:"):
         if prefix in state:
             rest = state.split(prefix, 1)[1].strip()
             return rest.split("\n", 1)[0].strip()

@@ -52,36 +52,43 @@ print(d.selected_tool, d.action, d.summary())
 
 人工金标 **中英各 n=100**（JEV 风格 `state` / `questions` / `answers`；含工具后多轮）。
 
-```bash
-thalamus compare --lang zh --with-fallback --skip-llm
-thalamus compare --lang en --with-fallback --skip-llm
-```
+协议：双方回答同一金标 `state` + `questions`（typed decisions）。实测日期 2026-09-24。
 
-> 下方延迟/准确率表仍为旧版 **n=56** 中文实测；请对 `traces.zh.json` / `traces.en.json` 重跑 compare 刷新。
-
-| Backend | Tool Acc | CPU 延迟 | GPU | 角色 |
-|---------|---------:|---------:|:---:|------|
-| **Laya + fallback** | **64.3%** | **~0.30 s** | — | **产品主路径** |
-| Laya bare | 55.4% | ~0.47 s | — | 关闭 fallback |
-| deepseek-v3.1 | 87.5% | ~2.0 s | — | LLM 当路由器的基线 |
-| Random | 21.4% | — | — | 机会水平下限 |
-| Keyword mock | 89.3% | &lt;1 ms | — | 仅 CI / Demo — **不是**产品指标 |
+| 语言 | Backend | Tool Acc | Noul Acc | Score Acc | 延迟 |
+|------|---------|---------:|---------:|----------:|-----:|
+| **zh** | **JEV** (`typesafe/jev-1.13`) | **98%** | 83% | 93% | ~1.27 s |
+| zh | Laya (`laya-multilingual`) | 58% | 39% | 25% | **~0.24 s** |
+| **en** | **JEV** (`typesafe/jev-1.13`) | **97%** | 66% | 86% | ~1.33 s |
+| en | Laya (`laya-multilingual`) | 65% | 79% | 36% | **~0.25 s** |
 
 <details>
 <summary><b>评测怎么读</b></summary>
 
 | 行 | 含义 |
 |----|------|
-| **Laya + fallback** | 低置信 / 硬失败 → 有 `LAYA_LLM_*` 走 LLM，否则 heuristic。本集比裸 Laya **+9 pp**。 |
-| **Laya bare** | 仅 System-1——看清本地模型单独上限。 |
-| **CPU / GPU** | CPU 为发布机实测（热机 ~0.5 s；冷机可接近 ~1 s）。GPU 未测（无 CUDA）——用 `--device cuda` 补齐。 |
-| **mock** | 贴着本集写的关键词启发式，禁止当模型能力。 |
+| **JEV** | OpenRouter Decisions API（`typesafe/jev-1.13`）直接答金标 `state` / `questions`。工具选择更强；含云端 RTT。 |
+| **Laya** | 本地 System-1（`convaiinnovations/laya-multilingual`），**关闭** fallback。延迟更低；本金标上仍有提升空间。 |
+| **Noul / Score** | 信息是否足够（`noul`）与可信度分档（有金标时）准确率。 |
 
-原始报告：[`eval/compare_report.json`](eval/compare_report.json) · 复现：`thalamus compare --with-fallback --skip-llm`
+复现：
+
+```bash
+# JEV 需 OPENROUTER_API_KEY；Laya 需本地 [laya] 权重
+python eval/compare_jev_laya.py --lang both --out eval/compare_jev_laya_report.json
+```
+
+报告：[`eval/compare_jev_laya_report.json`](eval/compare_jev_laya_report.json)
+
+产品路径扫表（Laya ± fallback / mock，不含 JEV）：
+
+```bash
+thalamus compare --lang zh --with-fallback --skip-llm
+thalamus compare --lang en --with-fallback --skip-llm
+```
 
 </details>
 
-> 目标是 **热路径用 System-1、边缘走 fallback**，不是「永远打败 LLM」。
+> 目标是 **热路径用 System-1、边缘走 fallback**，不是「永远打败云端决策模型」。
 
 ---
 
@@ -192,21 +199,21 @@ thalamus serve --port 8080                 # 需 [api]
 </details>
 
 <details>
-<summary><b>为什么不每次都问 GPT？</b></summary>
+<summary><b>为什么不每次都问 GPT / JEV？</b></summary>
 
-可以更准，但贵且慢。Thalamus 用 System-1 扛热路径（本机 CPU ~0.5 s），低置信再降级。
+JEV 在本金标上工具选择约 97–98%，但云端 RTT ~1.3 s。Thalamus 用本地 System-1 扛热路径（此处 ~0.25 s），低置信再降级。
 </details>
 
 <details>
-<summary><b>为什么裸 Laya 只有约 55%？</b></summary>
+<summary><b>为什么裸 Laya 只有约 58–65%？</b></summary>
 
-弱在「工具结果已够用该停」的多轮题。打开 fallback → 本表 **64.3%**（配置真 LLM 通常更高）。
+弱在「工具结果已够用该停」的多轮题（以及部分中文 search/direct）。分类明细见 [`eval/compare_jev_laya_report.json`](eval/compare_jev_laya_report.json)。产品路径打开 fallback 可再抬准确率。
 </details>
 
 <details>
-<summary><b>mock 89% 是水分吗？</b></summary>
+<summary><b>关键词 mock 是产品指标吗？</b></summary>
 
-是启发式，**禁止当产品指标**。
+不是——仅 CI / Demo 启发式。
 </details>
 
 <details>

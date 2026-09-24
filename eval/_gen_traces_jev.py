@@ -9,67 +9,142 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 TOOL_CRITERIA = {
-    "none": "Greetings, thanks, chitchat, translation, or opinion — no tool needed",
-    "calculator": "Numeric arithmetic / percentages / simple math expressions",
-    "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-    "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-    "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents",
+    "en": {
+        "none": "Greetings, thanks, chitchat, translation, or opinion — no tool needed",
+        "calculator": "Numeric arithmetic / percentages / simple math expressions",
+        "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+        "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+        "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents",
+    },
+    "zh": {
+        "none": "问候、道谢、闲聊、翻译或观点讨论——不需要调用工具",
+        "calculator": "数值四则运算、百分比、简单数学表达式",
+        "web_search": "公开事实、新闻、天气、定义、人物介绍、实时网页信息",
+        "code_interpreter": "编写/运行 Python、算法、pandas、绘图、代码调试",
+        "rag_retrieve": "公司内部知识库、员工手册、人事/制度类文档",
+    },
 }
 
-SCORE_CRITERIA = [
-    "error/failure or completely irrelevant",
-    "mostly irrelevant or broken output",
-    "weakly related",
-    "partially useful but major gaps",
-    "somewhat relevant",
-    "moderately relevant",
-    "relevant with minor gaps",
-    "mostly correct and useful for the query",
-    "highly relevant and reliable",
-    "excellent match to the query",
-    "perfectly answers the user query",
-]
+SCORE_CRITERIA = {
+    "en": [
+        "error/failure or completely irrelevant",
+        "mostly irrelevant or broken output",
+        "weakly related",
+        "partially useful but major gaps",
+        "somewhat relevant",
+        "moderately relevant",
+        "relevant with minor gaps",
+        "mostly correct and useful for the query",
+        "highly relevant and reliable",
+        "perfectly answers the user query",
+    ],
+    "zh": [
+        "错误/失败或完全无关",
+        "基本无关或输出损坏",
+        "弱相关",
+        "部分有用但缺口很大",
+        "有一定相关性",
+        "中等相关",
+        "相关且缺口较小",
+        "大体正确且对问题有用",
+        "高度相关且可靠",
+        "完美回答用户问题",
+    ],
+}
 
 
-def _questions(*, has_result: bool, result_failed: bool, need_score: bool) -> dict:
-    if has_result and not result_failed:
-        tool_inst = (
-            "A Tool result is ALREADY present in the state. "
-            "If it answers or substantially helps the user query, choose 'none'. "
-            "Only pick another tool if the result is missing, wrong, or an error."
+def _questions(
+    lang: str,
+    *,
+    has_result: bool,
+    result_failed: bool,
+    need_score: bool,
+) -> dict:
+    criteria = dict(TOOL_CRITERIA[lang])
+    if lang == "zh":
+        if has_result and not result_failed:
+            tool_inst = (
+                "状态中已经存在工具结果。"
+                "若该结果已能回答或实质帮助用户问题，请选择 none。"
+                "仅当结果缺失、错误或无效时，再选择其他工具。"
+            )
+            noul_inst = (
+                "已有工具结果且未标记失败。"
+                "是否已足够回答用户问题、无需再调用工具？"
+            )
+            criteria["none"] = "停止调用工具。状态中已有可用的工具结果。"
+        elif has_result and result_failed:
+            tool_inst = (
+                "上一次工具结果失败。优先重试合适的工具；"
+                "仅当没有任何工具能帮助时才选 none。"
+            )
+            noul_inst = "工具结果失败。信息不充分，应倾向于 false。"
+            criteria["none"] = "仅当失败后仍没有任何工具能帮忙时选择。"
+        else:
+            tool_inst = (
+                "为 AI Agent 选择下一个唯一工具。"
+                "问候/道谢/闲聊/翻译且无需工具时选 none。"
+                "仅数值运算选 calculator。"
+                "编写或运行 Python/算法选 code_interpreter。"
+                "公开事实、新闻、天气、定义选 web_search。"
+                "仅公司内部知识库文档选 rag_retrieve。"
+            )
+            noul_inst = (
+                "尚无工具结果。仅凭用户问题本身是否已可回答"
+                "（问候、道谢、简单翻译）？若需要计算/搜索/代码/文档则为 false。"
+            )
+        noul_crit = {
+            "true": "信息已足够，无需再调用工具",
+            "false": "仍需调用工具或补充信息",
+        }
+        score_inst = (
+            "评估工具结果对用户问题的回答质量。"
+            "错误/配额失败 → 0-2；正确且有用 → 7-9。"
         )
-        noul_inst = (
-            "A Tool result is present and not marked FAILED. "
-            "Is it enough to answer the user query without more tools?"
-        )
-        criteria = dict(TOOL_CRITERIA)
-        criteria["none"] = (
-            "STOP calling tools. A usable Tool result is already in the state."
-        )
-    elif has_result and result_failed:
-        tool_inst = (
-            "The previous Tool result FAILED. Prefer retrying an appropriate tool; "
-            "choose 'none' only if no tool can help."
-        )
-        noul_inst = (
-            "The Tool result FAILED. Information is NOT sufficient; prefer false."
-        )
-        criteria = dict(TOOL_CRITERIA)
-        criteria["none"] = "Only if no tool can help after a failed tool result."
     else:
-        tool_inst = (
-            "Pick the single next tool for an AI agent. "
-            "Use 'none' for greetings/thanks/simple chat/translation with no tool needed. "
-            "Use 'calculator' only for numeric arithmetic. "
-            "Use 'code_interpreter' to write/run Python or algorithms. "
-            "Use 'web_search' for public facts, news, weather, definitions. "
-            "Use 'rag_retrieve' only for internal/company knowledge-base documents."
+        if has_result and not result_failed:
+            tool_inst = (
+                "A Tool result is ALREADY present in the state. "
+                "If it answers or substantially helps the user query, choose 'none'. "
+                "Only pick another tool if the result is missing, wrong, or an error."
+            )
+            noul_inst = (
+                "A Tool result is present and not marked FAILED. "
+                "Is it enough to answer the user query without more tools?"
+            )
+            criteria["none"] = (
+                "STOP calling tools. A usable Tool result is already in the state."
+            )
+        elif has_result and result_failed:
+            tool_inst = (
+                "The previous Tool result FAILED. Prefer retrying an appropriate tool; "
+                "choose 'none' only if no tool can help."
+            )
+            noul_inst = (
+                "The Tool result FAILED. Information is NOT sufficient; prefer false."
+            )
+            criteria["none"] = "Only if no tool can help after a failed tool result."
+        else:
+            tool_inst = (
+                "Pick the single next tool for an AI agent. "
+                "Use 'none' for greetings/thanks/simple chat/translation with no tool needed. "
+                "Use 'calculator' only for numeric arithmetic. "
+                "Use 'code_interpreter' to write/run Python or algorithms. "
+                "Use 'web_search' for public facts, news, weather, definitions. "
+                "Use 'rag_retrieve' only for internal/company knowledge-base documents."
+            )
+            noul_inst = (
+                "No tool result yet. Is the user query answerable from the query alone "
+                "(greetings, thanks, simple translation)? If it needs calc/search/code/docs, false."
+            )
+        noul_crit = {
+            "true": "Enough information to answer without more tools",
+            "false": "Needs a tool call or more information",
+        }
+        score_inst = (
+            "Score how well the Tool result answers the User query. "
+            "Errors/quota failures -> 0-2. Correct useful results -> 7-9."
         )
-        noul_inst = (
-            "No tool result yet. Is the user query answerable from the query alone "
-            "(greetings, thanks, simple translation)? If it needs calc/search/code/docs, false."
-        )
-        criteria = dict(TOOL_CRITERIA)
 
     qs: dict = {
         "tool": {
@@ -80,27 +155,38 @@ def _questions(*, has_result: bool, result_failed: bool, need_score: bool) -> di
         "sufficient": {
             "type": "noul",
             "instructions": noul_inst,
-            "criteria": {
-                "true": "Enough information to answer without more tools",
-                "false": "Needs a tool call or more information",
-            },
+            "criteria": noul_crit,
         },
     }
     if need_score:
         qs["credibility"] = {
             "type": "score",
-            "instructions": (
-                "Score how well the Tool result answers the User query. "
-                "Errors/quota failures -> 0-2. Correct useful results -> 7-10."
-            ),
-            "criteria": SCORE_CRITERIA,
+            "instructions": score_inst,
+            "criteria": SCORE_CRITERIA[lang],
         }
     return qs
 
 
 def _state(
-    query: str, *, tool_result: str | None = None, context: str | None = None
+    lang: str,
+    query: str,
+    *,
+    tool_result: str | None = None,
+    context: str | None = None,
 ) -> str:
+    if lang == "zh":
+        parts = [f"用户问题：{query}"]
+        if context:
+            parts.append(f"上下文：{context}")
+        if tool_result:
+            failed = any(
+                x in tool_result.lower()
+                for x in ("error", "failed", "exception", "quota exceeded", "失败", "错误")
+            )
+            status = "失败" if failed else "成功"
+            parts.append(f"工具结果（状态：{status}）：\n{tool_result}")
+        return "\n".join(parts)
+
     parts = [f"User query: {query}"]
     if context:
         parts.append(f"Context: {context}")
@@ -134,7 +220,7 @@ def item(
         tool_result
         and any(
             x in tool_result.lower()
-            for x in ("error", "failed", "exception", "quota exceeded", "失败")
+            for x in ("error", "failed", "exception", "quota exceeded", "失败", "错误")
         )
     )
     need_score = expected_score_min is not None or has_result
@@ -148,7 +234,7 @@ def item(
     if expected_score_min is not None:
         answers["credibility"] = {
             "score_min": expected_score_min,
-            "score_max": expected_score_max if expected_score_max is not None else 10,
+            "score_max": expected_score_max if expected_score_max is not None else 9,
         }
 
     row: dict = {
@@ -156,9 +242,10 @@ def item(
         "lang": lang,
         "category": category,
         "schema": "jev-like/v1",
-        "state": _state(query, tool_result=tool_result, context=context),
+        "state": _state(lang, query, tool_result=tool_result, context=context),
         "query": query,
         "questions": _questions(
+            lang,
             has_result=has_result,
             result_failed=result_failed,
             need_score=need_score,
@@ -469,14 +556,14 @@ def build_zh() -> list[dict]:
         )
 
     fails = [
-        ("zh_search_fail", "帮我查一下今天上海会不会下雨", "error: search quota exceeded", ["web_search"], "web_search"),
-        ("zh_calc_fail", "计算 999/0", "error: division by zero", ["calculator"], "calculator"),
-        ("zh_code_fail", "用 Python 写快速排序", "error: interpreter timeout", ["code_interpreter"], "code_interpreter"),
-        ("zh_rag_fail", "根据公司知识库查福利补贴", "error: retrieval index unavailable", ["rag_retrieve"], "rag_retrieve"),
-        ("zh_search_timeout", "搜索一下量子计算最近有什么突破", "error: upstream timeout", ["web_search"], "web_search"),
-        ("zh_calc_overflow", "计算 10 ** 100000", "error: numeric overflow", ["calculator"], "calculator"),
-        ("zh_code_syntax", "用 pandas 把 CSV 按列求和并输出", "error: SyntaxError: unexpected EOF", ["code_interpreter"], "code_interpreter"),
-        ("zh_rag_empty", "员工手册里加班调休怎么算？", "error: no documents matched", ["rag_retrieve"], "rag_retrieve"),
+        ("zh_search_fail", "帮我查一下今天上海会不会下雨", "错误：搜索配额已用尽", ["web_search"], "web_search"),
+        ("zh_calc_fail", "计算 999/0", "错误：除零失败", ["calculator"], "calculator"),
+        ("zh_code_fail", "用 Python 写快速排序", "错误：解释器超时", ["code_interpreter"], "code_interpreter"),
+        ("zh_rag_fail", "根据公司知识库查福利补贴", "错误：检索索引不可用", ["rag_retrieve"], "rag_retrieve"),
+        ("zh_search_timeout", "搜索一下量子计算最近有什么突破", "错误：上游超时", ["web_search"], "web_search"),
+        ("zh_calc_overflow", "计算 10 ** 100000", "错误：数值溢出", ["calculator"], "calculator"),
+        ("zh_code_syntax", "用 pandas 把 CSV 按列求和并输出", "错误：SyntaxError: unexpected EOF", ["code_interpreter"], "code_interpreter"),
+        ("zh_rag_empty", "员工手册里加班调休怎么算？", "错误：未匹配到文档", ["rag_retrieve"], "rag_retrieve"),
     ]
     for i, q, tr, hist, tool in fails:
         rows.append(
