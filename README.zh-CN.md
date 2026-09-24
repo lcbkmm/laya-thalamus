@@ -26,10 +26,8 @@
 
 ## 安装使用
 
-> 尚未上架 PyPI，请从 GitHub 安装：
-
 ```bash
-pip install "laya-thalamus[laya] @ git+https://github.com/lcbkmm/laya-thalamus.git"
+pip install "laya-thalamus[laya]"
 ```
 
 ```python
@@ -120,9 +118,9 @@ flowchart TB
 ## 30 秒上手
 
 ```bash
-pip install "laya-thalamus[laya] @ git+https://github.com/lcbkmm/laya-thalamus.git"   # 真 System-1（推荐）
-# pip install "laya-thalamus @ git+https://github.com/lcbkmm/laya-thalamus.git"        # 只要库
-# pip install "laya-thalamus[api] @ git+https://github.com/lcbkmm/laya-thalamus.git"   # HTTP
+pip install "laya-thalamus[laya]"    # 真 System-1（推荐）
+# pip install laya-thalamus          # 只要库
+# pip install "laya-thalamus[api]"   # HTTP
 ```
 
 ```python
