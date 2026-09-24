@@ -11,19 +11,30 @@ from laya_thalamus.cli import main as cli_main
 
 def test_packaged_traces_loadable():
     data = load_default_traces()
-    assert len(data) >= 1
+    assert len(data) == 100
     assert "query" in data[0]
     assert "expected_tool" in data[0]
+    # JEV-like fields preserved / required on packaged gold
+    assert "state" in data[0]
+    assert "questions" in data[0]
+    assert "answers" in data[0]
+    assert data[0]["questions"]["tool"]["type"] == "choice"
+    assert data[0]["questions"]["sufficient"]["type"] == "noul"
 
 
 def test_repo_traces_match_packaged_when_present():
     """Keep checkout eval/traces.json in sync with the packaged copy."""
-    repo = Path(__file__).resolve().parents[1] / "eval" / "traces.json"
-    if not repo.exists():
+    root = Path(__file__).resolve().parents[1]
+    repo = root / "eval" / "traces.json"
+    packaged_path = (
+        root / "src" / "laya_thalamus" / "resources" / "traces.json"
+    )
+    if not repo.exists() or not packaged_path.exists():
         return
-    packaged = load_default_traces()
     checkout = json.loads(repo.read_text(encoding="utf-8"))
+    packaged = json.loads(packaged_path.read_text(encoding="utf-8"))
     assert checkout == packaged
+    assert len(checkout) == 100
 
 
 def test_cli_compare_mock_only(tmp_path, monkeypatch):
