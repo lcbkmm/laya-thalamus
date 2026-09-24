@@ -12,17 +12,6 @@
 [![CI](https://img.shields.io/badge/CI-pytest%203.10--3.12-informational)](.github/workflows/ci.yml)
 [![PyPI](https://img.shields.io/badge/pip-laya--thalamus-blue)](https://pypi.org/project/laya-thalamus/)
 
-```bash
-pip install "laya-thalamus[laya]"
-```
-
-```python
-from laya_thalamus import AgentRouter
-router = AgentRouter()
-d = router.route("计算 123 * 456 等于多少")
-print(d.selected_tool, d.action, d.summary())
-```
-
 </div>
 
 ---
@@ -34,6 +23,19 @@ print(d.selected_tool, d.action, d.summary())
 | **一行接入** | OpenAI tools · LangChain · 自研 Agent |
 | **三种原语** | `choice` · `noul` · `score` |
 | **可上线** | 降级 · 熔断 · 缓存 · 幂等 · Prometheus / OTel |
+
+## 安装使用
+
+```bash
+pip install "laya-thalamus[laya]"
+```
+
+```python
+from laya_thalamus import AgentRouter
+router = AgentRouter()
+d = router.route("计算 123 * 456 等于多少")
+print(d.selected_tool, d.action, d.summary())
+```
 
 ---
 
