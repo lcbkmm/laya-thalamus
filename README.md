@@ -27,8 +27,17 @@ Powered by [Laya](https://github.com/NandhaKishorM/laya) · Fast local routing �
 ## Install
 
 ```bash
-pip install "laya-thalamus[laya]"
+pip install "laya-thalamus[laya]"   # recommended: middleware + System-1 engine
 ```
+
+| Command | What you get | When to use |
+|---------|--------------|-------------|
+| `pip install "laya-thalamus[laya]"` | Thalamus **+** official [`laya`](https://pypi.org/project/laya/) runtime | Real System-1 routing (`backend=laya`) — **recommended** |
+| `pip install laya-thalamus` | Middleware only (`pydantic` / `pyyaml`) | API exploration, `mock` backend, or you already installed `laya` yourself |
+| `pip install "laya-thalamus[api]"` | + FastAPI / uvicorn | `thalamus serve` HTTP API |
+| `pip install "laya-thalamus[all]"` | Common extras together | Local full stack |
+
+Without the `[laya]` extra you can still `import laya_thalamus`, but `backend=laya` will fail (or fall back to mock) because the System-1 engine package is missing.
 
 ```python
 from laya_thalamus import AgentRouter
@@ -118,9 +127,9 @@ Outputs **routing decisions only** — never the final answer text.
 ## Quick start
 
 ```bash
-pip install "laya-thalamus[laya]"    # real System-1 (recommended)
-# pip install laya-thalamus          # library only
-# pip install "laya-thalamus[api]"   # HTTP server
+pip install "laya-thalamus[laya]"    # middleware + Laya engine (recommended)
+# pip install laya-thalamus          # middleware only — no System-1 weights runtime
+# pip install "laya-thalamus[api]"   # + HTTP server deps
 ```
 
 ```python

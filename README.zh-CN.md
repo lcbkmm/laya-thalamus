@@ -27,8 +27,17 @@
 ## 安装使用
 
 ```bash
-pip install "laya-thalamus[laya]"
+pip install "laya-thalamus[laya]"   # 推荐：中间件 + System-1 引擎
 ```
+
+| 命令 | 装到什么 | 适用场景 |
+|------|----------|----------|
+| `pip install "laya-thalamus[laya]"` | Thalamus **+** 官方 [`laya`](https://pypi.org/project/laya/) 运行时 | 真 System-1 路由（`backend=laya`）— **推荐** |
+| `pip install laya-thalamus` | 仅中间件（`pydantic` / `pyyaml`） | 试 API、`mock` 后端，或你已自行安装 `laya` |
+| `pip install "laya-thalamus[api]"` | + FastAPI / uvicorn | `thalamus serve` HTTP 服务 |
+| `pip install "laya-thalamus[all]"` | 常用可选依赖一并安装 | 本机完整开发环境 |
+
+不加 `[laya]` 也能 `import laya_thalamus`，但走 `backend=laya` 时会因缺少 System-1 引擎包而失败（或退回 mock）。
 
 ```python
 from laya_thalamus import AgentRouter
@@ -118,9 +127,9 @@ flowchart TB
 ## 30 秒上手
 
 ```bash
-pip install "laya-thalamus[laya]"    # 真 System-1（推荐）
-# pip install laya-thalamus          # 只要库
-# pip install "laya-thalamus[api]"   # HTTP
+pip install "laya-thalamus[laya]"    # 中间件 + Laya 引擎（推荐）
+# pip install laya-thalamus          # 仅中间件 — 不含 System-1 权重运行时
+# pip install "laya-thalamus[api]"   # + HTTP 服务依赖
 ```
 
 ```python
