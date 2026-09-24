@@ -141,7 +141,7 @@ cfg.model.backend = "laya"       # auto | laya | mock | llm
 cfg.model.timeout_ms = 30_000    # raise for local CPU cold start
 router = AgentRouter(config=cfg)
 
-d = router.route("What is 123*456?", session_id="user-42")
+d = router.route("What is 123 * 456?", session_id="user-42")
 print(d.decision_id, d.selected_tool, d.summary())
 ```
 

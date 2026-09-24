@@ -141,7 +141,7 @@ cfg.model.backend = "laya"       # auto | laya | mock | llm
 cfg.model.timeout_ms = 30_000    # 本地 CPU 冷启动建议加大
 router = AgentRouter(config=cfg)
 
-d = router.route("计算 123*456 等于多少", session_id="user-42")
+d = router.route("计算 123 * 456 等于多少", session_id="user-42")
 print(d.decision_id, d.selected_tool, d.summary())
 ```
 
