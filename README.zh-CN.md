@@ -58,8 +58,10 @@ print(d.selected_tool, d.action, d.summary())
 |------|---------|---------:|---------:|----------:|-----:|
 | **zh** | **JEV** (`typesafe/jev-1.13`) | **98%** | 83% | 93% | ~1.27 s |
 | zh | Laya (`laya-multilingual`) | 58% | 39% | 25% | **~0.24 s** |
+| zh | Laya (`laya` 英文基座) | 49% | 57% | 29% | ~1.47 s |
 | **en** | **JEV** (`typesafe/jev-1.13`) | **97%** | 66% | 86% | ~1.33 s |
 | en | Laya (`laya-multilingual`) | 65% | 79% | 36% | **~0.25 s** |
+| en | Laya (`laya` 英文基座) | 41% | 79% | 71% | ~0.60 s |
 
 <details>
 <summary><b>评测怎么读</b></summary>
@@ -67,7 +69,8 @@ print(d.selected_tool, d.action, d.summary())
 | 行 | 含义 |
 |----|------|
 | **JEV** | OpenRouter Decisions API（`typesafe/jev-1.13`）直接答金标 `state` / `questions`。工具选择更强；含云端 RTT。 |
-| **Laya** | 本地 System-1（`convaiinnovations/laya-multilingual`），**关闭** fallback。延迟更低；本金标上仍有提升空间。 |
+| **Laya multilingual** | 本地 System-1（`convaiinnovations/laya-multilingual`），**关闭** fallback。本表本地最优折中。 |
+| **Laya english** | 英文基座（`convaiinnovations/laya`）。两侧均弱于 multilingual（中文 rag/search 尤差）。 |
 | **Noul / Score** | 信息是否足够（`noul`）与可信度分档（有金标时）准确率。 |
 
 复现：
@@ -75,9 +78,11 @@ print(d.selected_tool, d.action, d.summary())
 ```bash
 # JEV 需 OPENROUTER_API_KEY；Laya 需本地 [laya] 权重
 python eval/compare_jev_laya.py --lang both --out eval/compare_jev_laya_report.json
+python eval/compare_jev_laya.py --lang both --skip-jev --model convaiinnovations/laya \
+  --out eval/compare_laya_english_report.json
 ```
 
-报告：[`eval/compare_jev_laya_report.json`](eval/compare_jev_laya_report.json)
+报告：[`compare_jev_laya_report.json`](eval/compare_jev_laya_report.json) · [`compare_laya_english_report.json`](eval/compare_laya_english_report.json)
 
 产品路径扫表（Laya ± fallback / mock，不含 JEV）：
 
@@ -205,9 +210,9 @@ JEV 在本金标上工具选择约 97–98%，但云端 RTT ~1.3 s。Thalamus �
 </details>
 
 <details>
-<summary><b>为什么裸 Laya 只有约 58–65%？</b></summary>
+<summary><b>为什么裸 Laya 只有约 41–65%？</b></summary>
 
-弱在「工具结果已够用该停」的多轮题（以及部分中文 search/direct）。分类明细见 [`eval/compare_jev_laya_report.json`](eval/compare_jev_laya_report.json)。产品路径打开 fallback 可再抬准确率。
+本地最强是 `laya-multilingual`（zh 58% / en 65%）。英文基座 `laya` 更低（zh 49% / en 41%），弱在「该停工具」多轮与中文 rag/search。产品路径打开 fallback 可再抬准确率。
 </details>
 
 <details>

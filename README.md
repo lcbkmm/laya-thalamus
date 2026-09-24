@@ -58,8 +58,10 @@ Protocol: both models answer the same gold `state` + `questions` (typed decision
 |------|---------|---------:|---------:|----------:|--------:|
 | **zh** | **JEV** (`typesafe/jev-1.13`) | **98%** | 83% | 93% | ~1.27 s |
 | zh | Laya (`laya-multilingual`) | 58% | 39% | 25% | **~0.24 s** |
+| zh | Laya (`laya` english) | 49% | 57% | 29% | ~1.47 s |
 | **en** | **JEV** (`typesafe/jev-1.13`) | **97%** | 66% | 86% | ~1.33 s |
 | en | Laya (`laya-multilingual`) | 65% | 79% | 36% | **~0.25 s** |
+| en | Laya (`laya` english) | 41% | 79% | 71% | ~0.60 s |
 
 <details>
 <summary><b>How to read these numbers</b></summary>
@@ -67,7 +69,8 @@ Protocol: both models answer the same gold `state` + `questions` (typed decision
 | Row | Meaning |
 |-----|---------|
 | **JEV** | OpenRouter Decisions API (`typesafe/jev-1.13`) on gold `state` / `questions`. Stronger tool choice; cloud RTT. |
-| **Laya** | Local System-1 (`convaiinnovations/laya-multilingual`), fallback **off**. Lower latency; room to improve on this gold set. |
+| **Laya multilingual** | Local System-1 (`convaiinnovations/laya-multilingual`), fallback **off**. Best local trade-off here. |
+| **Laya english** | Base English checkpoint (`convaiinnovations/laya`). Weaker than multilingual on both langs (esp. zh rag/search). |
 | **Noul / Score** | Sufficient (`noul`) and credibility band accuracy where gold labels exist. |
 
 Reproduce:
@@ -75,9 +78,11 @@ Reproduce:
 ```bash
 # needs OPENROUTER_API_KEY for JEV; local [laya] weights for Laya
 python eval/compare_jev_laya.py --lang both --out eval/compare_jev_laya_report.json
+python eval/compare_jev_laya.py --lang both --skip-jev --model convaiinnovations/laya \
+  --out eval/compare_laya_english_report.json
 ```
 
-Report: [`eval/compare_jev_laya_report.json`](eval/compare_jev_laya_report.json)
+Reports: [`compare_jev_laya_report.json`](eval/compare_jev_laya_report.json) · [`compare_laya_english_report.json`](eval/compare_laya_english_report.json)
 
 Product-path sweep (Laya ± fallback / mock, no JEV):
 
@@ -205,9 +210,9 @@ JEV hits ~97–98% tool acc on this gold set, but ~1.3 s cloud RTT. Thalamus kee
 </details>
 
 <details>
-<summary><b>Why is bare Laya ~58–65%?</b></summary>
+<summary><b>Why is bare Laya ~41–65%?</b></summary>
 
-Weakest on post-tool “stop calling tools” turns (and some zh search/direct). See category breakdown in [`eval/compare_jev_laya_report.json`](eval/compare_jev_laya_report.json). Enable product fallback for higher accuracy.
+`laya-multilingual` is strongest locally (zh 58% / en 65%). English-only `laya` is lower (zh 49% / en 41%), especially on post-tool stop and zh rag/search. Enable product fallback for higher accuracy.
 </details>
 
 <details>

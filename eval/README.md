@@ -25,6 +25,8 @@ Packaged copies live under `src/laya_thalamus/resources/` (must stay identical).
 ```bash
 # JEV vs Laya on gold state+questions (needs OPENROUTER_API_KEY + [laya])
 python eval/compare_jev_laya.py --lang both --out eval/compare_jev_laya_report.json
+python eval/compare_jev_laya.py --lang both --skip-jev --model convaiinnovations/laya \
+  --out eval/compare_laya_english_report.json
 
 thalamus compare --lang zh --with-fallback --skip-llm
 thalamus compare --lang en --with-fallback --skip-llm
@@ -33,7 +35,7 @@ python eval/run_eval.py --lang en --backend mock
 
 Default packaged language is **zh** (`LAYA_TRACES_LANG=en` to override).
 
-Latest JEV / Laya numbers: [`compare_jev_laya_report.json`](compare_jev_laya_report.json) (also summarized in root README).
+Latest numbers: [`compare_jev_laya_report.json`](compare_jev_laya_report.json) · [`compare_laya_english_report.json`](compare_laya_english_report.json) (summarized in root README).
 
 Regenerate:
 

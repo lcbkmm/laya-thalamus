@@ -1,0 +1,632 @@
+{
+  "protocol": "gold state + questions (typed decisions)",
+  "jev_model": "typesafe/jev-1.13",
+  "laya_model": "convaiinnovations/laya",
+  "langs": {
+    "zh": {
+      "n": 100,
+      "backends": [
+        {
+          "backend": "laya:convaiinnovations/laya",
+          "n": 100,
+          "tool_accuracy": 0.49,
+          "noul_accuracy": 0.57,
+          "score_band_accuracy": 0.2857,
+          "avg_latency_ms": 1474.95,
+          "error_count": 0,
+          "per_category_accuracy": {
+            "after_tool": 0.45,
+            "after_tool_fail": 0.375,
+            "calculator": 0.5,
+            "code": 1.0,
+            "direct": 0.9286,
+            "edge": 0.6667,
+            "rag": 0.0,
+            "search": 0.125
+          },
+          "pred_tool_dist": {
+            "none": 57,
+            "code_interpreter": 23,
+            "calculator": 13,
+            "web_search": 7
+          },
+          "errors": [
+            {
+              "id": "zh_brainstorm",
+              "expected": "none",
+              "predicted": "code_interpreter",
+              "category": "direct",
+              "error": null
+            },
+            {
+              "id": "zh_calc_mul",
+              "expected": "calculator",
+              "predicted": "none",
+              "category": "calculator",
+              "error": null
+            },
+            {
+              "id": "zh_calc_sqrt",
+              "expected": "calculator",
+              "predicted": "none",
+              "category": "calculator",
+              "error": null
+            },
+            {
+              "id": "zh_calc_pow",
+              "expected": "calculator",
+              "predicted": "none",
+              "category": "calculator",
+              "error": null
+            },
+            {
+              "id": "zh_calc_discount",
+              "expected": "calculator",
+              "predicted": "none",
+              "category": "calculator",
+              "error": null
+            },
+            {
+              "id": "zh_calc_interest",
+              "expected": "calculator",
+              "predicted": "none",
+              "category": "calculator",
+              "error": null
+            },
+            {
+              "id": "zh_calc_meter",
+              "expected": "calculator",
+              "predicted": "code_interpreter",
+              "category": "calculator",
+              "error": null
+            },
+            {
+              "id": "zh_quantum",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_crispr",
+              "expected": "web_search",
+              "predicted": "code_interpreter",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_transformer",
+              "expected": "web_search",
+              "predicted": "code_interpreter",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_news",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_hinton",
+              "expected": "web_search",
+              "predicted": "code_interpreter",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_stock",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_weather_bj",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_quantum_diff",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_passport",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_mile",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_olympics",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_openai",
+              "expected": "web_search",
+              "predicted": "code_interpreter",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_fx",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_turing",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "zh_rag_leave",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_expense",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_ot",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_attend",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_laptop",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_exit",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_vpn",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_meal",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_usb",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_room",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_probation",
+              "expected": "rag_retrieve",
+              "predicted": "code_interpreter",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_rag_remote",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "zh_calc_after_ok",
+              "expected": "none",
+              "predicted": "calculator",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "zh_percent_after_ok",
+              "expected": "none",
+              "predicted": "calculator",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "zh_expr_after_ok",
+              "expected": "none",
+              "predicted": "calculator",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "zh_crispr_after_ok",
+              "expected": "none",
+              "predicted": "web_search",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "zh_news_after_ok",
+              "expected": "none",
+              "predicted": "web_search",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "zh_code_after_ok",
+              "expected": "none",
+              "predicted": "calculator",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "zh_sort_after_ok",
+              "expected": "none",
+              "predicted": "code_interpreter",
+              "category": "after_tool",
+              "error": null
+            }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "n": 100,
+      "backends": [
+        {
+          "backend": "laya:convaiinnovations/laya",
+          "n": 100,
+          "tool_accuracy": 0.41,
+          "noul_accuracy": 0.79,
+          "score_band_accuracy": 0.7143,
+          "avg_latency_ms": 603.35,
+          "error_count": 0,
+          "per_category_accuracy": {
+            "after_tool": 0.15,
+            "after_tool_fail": 0.375,
+            "calculator": 0.8333,
+            "code": 0.25,
+            "direct": 1.0,
+            "edge": 0.5,
+            "rag": 0.1667,
+            "search": 0.1875
+          },
+          "pred_tool_dist": {
+            "none": 61,
+            "calculator": 20,
+            "web_search": 5,
+            "code_interpreter": 8,
+            "rag_retrieve": 6
+          },
+          "errors": [
+            {
+              "id": "en_calc_pow",
+              "expected": "calculator",
+              "predicted": "none",
+              "category": "calculator",
+              "error": null
+            },
+            {
+              "id": "en_calc_meter",
+              "expected": "calculator",
+              "predicted": "none",
+              "category": "calculator",
+              "error": null
+            },
+            {
+              "id": "en_quantum",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_crispr",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_transformer",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_hinton",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_weather_nyc",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_quantum_diff",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_cloud",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_passport",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_mile",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_olympics",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_openai",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_fx",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_turing",
+              "expected": "web_search",
+              "predicted": "none",
+              "category": "search",
+              "error": null
+            },
+            {
+              "id": "en_code_pandas",
+              "expected": "code_interpreter",
+              "predicted": "none",
+              "category": "code",
+              "error": null
+            },
+            {
+              "id": "en_code_bfs_tree",
+              "expected": "code_interpreter",
+              "predicted": "none",
+              "category": "code",
+              "error": null
+            },
+            {
+              "id": "en_code_debug",
+              "expected": "code_interpreter",
+              "predicted": "none",
+              "category": "code",
+              "error": null
+            },
+            {
+              "id": "en_code_regex",
+              "expected": "code_interpreter",
+              "predicted": "none",
+              "category": "code",
+              "error": null
+            },
+            {
+              "id": "en_code_plot",
+              "expected": "code_interpreter",
+              "predicted": "none",
+              "category": "code",
+              "error": null
+            },
+            {
+              "id": "en_code_sqlite",
+              "expected": "code_interpreter",
+              "predicted": "none",
+              "category": "code",
+              "error": null
+            },
+            {
+              "id": "en_code_bfs",
+              "expected": "code_interpreter",
+              "predicted": "none",
+              "category": "code",
+              "error": null
+            },
+            {
+              "id": "en_code_flatten",
+              "expected": "code_interpreter",
+              "predicted": "none",
+              "category": "code",
+              "error": null
+            },
+            {
+              "id": "en_code_thread",
+              "expected": "code_interpreter",
+              "predicted": "none",
+              "category": "code",
+              "error": null
+            },
+            {
+              "id": "en_rag_leave",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_rag_expense",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_rag_ot",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_rag_attend",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_rag_laptop",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_rag_exit",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_rag_meal",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_rag_usb",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_rag_probation",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_rag_remote",
+              "expected": "rag_retrieve",
+              "predicted": "none",
+              "category": "rag",
+              "error": null
+            },
+            {
+              "id": "en_calc_after_ok",
+              "expected": "none",
+              "predicted": "calculator",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "en_percent_after_ok",
+              "expected": "none",
+              "predicted": "calculator",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "en_expr_after_ok",
+              "expected": "none",
+              "predicted": "calculator",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "en_pow_after_ok",
+              "expected": "none",
+              "predicted": "calculator",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "en_discount_after_ok",
+              "expected": "none",
+              "predicted": "calculator",
+              "category": "after_tool",
+              "error": null
+            },
+            {
+              "id": "en_search_after_ok",
+              "expected": "none",
+              "predicted": "web_search",
+              "category": "after_tool",
+              "error": null
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

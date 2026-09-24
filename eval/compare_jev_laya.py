@@ -198,13 +198,21 @@ def eval_jev(data: list[dict[str, Any]], api_key: str, *, model: str) -> dict[st
     return _summarize(rows, f"jev:{model}")
 
 
-def eval_laya(data: list[dict[str, Any]], *, device: str | None, timeout_ms: int) -> dict[str, Any]:
+def eval_laya(
+    data: list[dict[str, Any]],
+    *,
+    model_name: str | None,
+    device: str | None,
+    timeout_ms: int,
+) -> dict[str, Any]:
     cfg = load_config()
     cfg.model.backend = "laya"
     cfg.fallback.enabled = False
     cfg.model.timeout_ms = timeout_ms
     cfg.model.hard_fail_on_timeout = False
     cfg.model.hard_fail_on_exception = False
+    if model_name:
+        cfg.model.name = model_name
     if device:
         cfg.model.device = device
     router = AgentRouter(config=cfg)
@@ -276,6 +284,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--skip-jev", action="store_true")
     ap.add_argument("--skip-laya", action="store_true")
     ap.add_argument("--jev-model", default=JEV_MODEL)
+    ap.add_argument(
+        "--model",
+        default=None,
+        help="Laya HF id / local path (default: config; e.g. convaiinnovations/laya)",
+    )
     ap.add_argument("--device", default=None)
     ap.add_argument("--timeout-ms", type=int, default=60_000)
     ap.add_argument("--out", default=str(ROOT / "eval" / "compare_jev_laya_report.json"))
@@ -294,6 +307,7 @@ def main(argv: list[str] | None = None) -> int:
     report: dict[str, Any] = {
         "protocol": "gold state + questions (typed decisions)",
         "jev_model": args.jev_model,
+        "laya_model": args.model or "<config default>",
         "langs": {},
     }
 
@@ -309,7 +323,12 @@ def main(argv: list[str] | None = None) -> int:
         if not args.skip_laya:
             print("[laya] evaluating ...")
             block["backends"].append(
-                eval_laya(data, device=args.device, timeout_ms=args.timeout_ms)
+                eval_laya(
+                    data,
+                    model_name=args.model,
+                    device=args.device,
+                    timeout_ms=args.timeout_ms,
+                )
             )
         report["langs"][lang] = block
         _print_table(block["backends"])
