@@ -55,13 +55,13 @@ print(d.selected_tool, d.action, d.summary())
 协议：双方回答同一金标 `state` + `questions`（typed decisions）。实测日期 2026-09-24。
 
 | 语言 | Backend | Tool Acc | Noul Acc | Score Acc | 延迟 |
-|------|---------|---------:|---------:|----------:|-----:|
-| **zh** | **JEV** (`typesafe/jev-1.13`) | **98%** | 83% | 93% | ~1.27 s |
+|:----:|:-------:|:--------:|:--------:|:---------:|:----:|
+| zh | **JEV** (`typesafe/jev-1.13`) | **98%** | **83%** | **93%** | ~1.27 s |
 | zh | Laya (`laya-multilingual`) | 58% | 39% | 25% | **~0.24 s** |
 | zh | Laya (`laya` 英文基座) | 49% | 57% | 29% | ~1.47 s |
-| **en** | **JEV** (`typesafe/jev-1.13`) | **97%** | 66% | 86% | ~1.33 s |
-| en | Laya (`laya-multilingual`) | 65% | 79% | 36% | **~0.25 s** |
-| en | Laya (`laya` 英文基座) | 41% | 79% | 71% | ~0.60 s |
+| en | **JEV** (`typesafe/jev-1.13`) | **97%** | 66% | **86%** | ~1.33 s |
+| en | Laya (`laya-multilingual`) | 65% | **79%** | 36% | **~0.25 s** |
+| en | Laya (`laya` 英文基座) | 41% | **79%** | 71% | ~0.60 s |
 
 <details>
 <summary><b>评测怎么读</b></summary>

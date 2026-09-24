@@ -55,13 +55,13 @@ Gold set **n=100 × 2** (Chinese + English; JEV-like `state` / `questions` / `an
 Protocol: both models answer the same gold `state` + `questions` (typed decisions). Measured 2026-09-24.
 
 | Lang | Backend | Tool Acc | Noul Acc | Score Acc | Latency |
-|------|---------|---------:|---------:|----------:|--------:|
-| **zh** | **JEV** (`typesafe/jev-1.13`) | **98%** | 83% | 93% | ~1.27 s |
+|:----:|:-------:|:--------:|:--------:|:---------:|:-------:|
+| zh | **JEV** (`typesafe/jev-1.13`) | **98%** | **83%** | **93%** | ~1.27 s |
 | zh | Laya (`laya-multilingual`) | 58% | 39% | 25% | **~0.24 s** |
 | zh | Laya (`laya` english) | 49% | 57% | 29% | ~1.47 s |
-| **en** | **JEV** (`typesafe/jev-1.13`) | **97%** | 66% | 86% | ~1.33 s |
-| en | Laya (`laya-multilingual`) | 65% | 79% | 36% | **~0.25 s** |
-| en | Laya (`laya` english) | 41% | 79% | 71% | ~0.60 s |
+| en | **JEV** (`typesafe/jev-1.13`) | **97%** | 66% | **86%** | ~1.33 s |
+| en | Laya (`laya-multilingual`) | 65% | **79%** | 36% | **~0.25 s** |
+| en | Laya (`laya` english) | 41% | **79%** | 71% | ~0.60 s |
 
 <details>
 <summary><b>How to read these numbers</b></summary>
