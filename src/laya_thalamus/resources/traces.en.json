@@ -1,10 +1,11 @@
 [
   {
-    "id": "greet",
+    "id": "en_greet",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 你好，今天过得怎么样",
-    "query": "你好，今天过得怎么样",
+    "state": "User query: Hi, how are you today?",
+    "query": "Hi, how are you today?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -40,11 +41,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "thanks",
+    "id": "en_thanks",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 谢谢你的帮助",
-    "query": "谢谢你的帮助",
+    "state": "User query: Thanks a lot for your help",
+    "query": "Thanks a lot for your help",
     "questions": {
       "tool": {
         "type": "choice",
@@ -80,11 +82,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "bye",
+    "id": "en_bye",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 再见，下次聊",
-    "query": "再见，下次聊",
+    "state": "User query: Goodbye, talk next time",
+    "query": "Goodbye, talk next time",
     "questions": {
       "tool": {
         "type": "choice",
@@ -120,11 +123,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "translate_intent",
+    "id": "en_translate",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 把下面这句话翻译成英文：今天会议取消了",
-    "query": "把下面这句话翻译成英文：今天会议取消了",
+    "state": "User query: Translate to Chinese: The meeting is canceled today.",
+    "query": "Translate to Chinese: The meeting is canceled today.",
     "questions": {
       "tool": {
         "type": "choice",
@@ -160,11 +164,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "opinion",
+    "id": "en_opinion",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 你觉得春天好还是秋天好？",
-    "query": "你觉得春天好还是秋天好？",
+    "state": "User query: Do you prefer spring or autumn? Just your take.",
+    "query": "Do you prefer spring or autumn? Just your take.",
     "questions": {
       "tool": {
         "type": "choice",
@@ -200,11 +205,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "hello_en",
+    "id": "en_joke",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: Hi, how are you?",
-    "query": "Hi, how are you?",
+    "state": "User query: Tell me a short clean joke",
+    "query": "Tell me a short clean joke",
     "questions": {
       "tool": {
         "type": "choice",
@@ -240,11 +246,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "joke",
+    "id": "en_summarize",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 讲个简短的冷笑话吧",
-    "query": "讲个简短的冷笑话吧",
+    "state": "User query: Summarize in one sentence: Apples are common fruits rich in vitamins.",
+    "query": "Summarize in one sentence: Apples are common fruits rich in vitamins.",
     "questions": {
       "tool": {
         "type": "choice",
@@ -280,11 +287,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "summarize_given",
+    "id": "en_meaning",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 请用一句话总结：苹果是一种常见水果，富含维生素。",
-    "query": "请用一句话总结：苹果是一种常见水果，富含维生素。",
+    "state": "User query: What is the meaning of life?",
+    "query": "What is the meaning of life?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -320,11 +328,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "ambiguous_math_word",
+    "id": "en_encourage",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 人生的意义是什么",
-    "query": "人生的意义是什么",
+    "state": "User query: I'm feeling down — say two encouraging sentences",
+    "query": "I'm feeling down — say two encouraging sentences",
     "questions": {
       "tool": {
         "type": "choice",
@@ -360,11 +369,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "encourage",
+    "id": "en_goodnight",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 我有点沮丧，说两句鼓励的话吧",
-    "query": "我有点沮丧，说两句鼓励的话吧",
+    "state": "User query: Wish me good night in a gentle tone",
+    "query": "Wish me good night in a gentle tone",
     "questions": {
       "tool": {
         "type": "choice",
@@ -400,11 +410,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "roleplay_light",
+    "id": "en_rewrite",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 用温柔的语气跟我说晚安",
-    "query": "用温柔的语气跟我说晚安",
+    "state": "User query: Make this more polite: Send me the file right now",
+    "query": "Make this more polite: Send me the file right now",
     "questions": {
       "tool": {
         "type": "choice",
@@ -440,11 +451,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "rewrite_tone",
+    "id": "en_brainstorm",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 把这句话改得更礼貌：把文件马上发给我",
-    "query": "把这句话改得更礼貌：把文件马上发给我",
+    "state": "User query: Suggest three nice English names for a book club",
+    "query": "Suggest three nice English names for a book club",
     "questions": {
       "tool": {
         "type": "choice",
@@ -480,11 +492,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "brainstorm_name",
+    "id": "en_pets",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 给一个读书会起三个好听的中文名字",
-    "query": "给一个读书会起三个好听的中文名字",
+    "state": "User query: Cats or dogs for an apartment — brief opinion only",
+    "query": "Cats or dogs for an apartment — brief opinion only",
     "questions": {
       "tool": {
         "type": "choice",
@@ -520,11 +533,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "simple_compare",
+    "id": "en_poem",
+    "lang": "en",
     "category": "direct",
     "schema": "jev-like/v1",
-    "state": "User query: 猫和狗哪个更适合公寓养？给个简短看法即可",
-    "query": "猫和狗哪个更适合公寓养？给个简短看法即可",
+    "state": "User query: Write two short lines about autumn",
+    "query": "Write two short lines about autumn",
     "questions": {
       "tool": {
         "type": "choice",
@@ -560,11 +574,12 @@
     "expected_sufficient": true
   },
   {
-    "id": "calc_mul",
+    "id": "en_calc_mul",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 请计算 384 * 27 的结果",
-    "query": "请计算 384 * 27 的结果",
+    "state": "User query: Please compute 384 * 27",
+    "query": "Please compute 384 * 27",
     "questions": {
       "tool": {
         "type": "choice",
@@ -600,11 +615,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "percent",
+    "id": "en_percent",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 85 的 20% 是多少，帮我算一下",
-    "query": "85 的 20% 是多少，帮我算一下",
+    "state": "User query: What is 20% of 85? Calculate it",
+    "query": "What is 20% of 85? Calculate it",
     "questions": {
       "tool": {
         "type": "choice",
@@ -640,11 +656,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_expr",
+    "id": "en_calc_expr",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 算一下 (120-45)/5+8",
-    "query": "算一下 (120-45)/5+8",
+    "state": "User query: Calculate (120-45)/5+8",
+    "query": "Calculate (120-45)/5+8",
     "questions": {
       "tool": {
         "type": "choice",
@@ -680,11 +697,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_sqrt",
+    "id": "en_calc_sqrt",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 计算 144 的平方根",
-    "query": "计算 144 的平方根",
+    "state": "User query: What is the square root of 144?",
+    "query": "What is the square root of 144?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -720,11 +738,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_mix",
+    "id": "en_calc_mix",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 3.5 乘以 2.2 再加 10 等于多少",
-    "query": "3.5 乘以 2.2 再加 10 等于多少",
+    "state": "User query: What is 3.5 times 2.2 plus 10?",
+    "query": "What is 3.5 times 2.2 plus 10?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -760,11 +779,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_div",
+    "id": "en_calc_div",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 用计算器算 98765 / 5",
-    "query": "用计算器算 98765 / 5",
+    "state": "User query: Divide 98765 by 5 with the calculator",
+    "query": "Divide 98765 by 5 with the calculator",
     "questions": {
       "tool": {
         "type": "choice",
@@ -800,11 +820,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_pow",
+    "id": "en_calc_pow",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 计算 2 的 10 次方",
-    "query": "计算 2 的 10 次方",
+    "state": "User query: Compute 2 to the power of 10",
+    "query": "Compute 2 to the power of 10",
     "questions": {
       "tool": {
         "type": "choice",
@@ -840,11 +861,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_avg",
+    "id": "en_calc_avg",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 求 12、18、25、30 的平均数",
-    "query": "求 12、18、25、30 的平均数",
+    "state": "User query: Average of 12, 18, 25, and 30",
+    "query": "Average of 12, 18, 25, and 30",
     "questions": {
       "tool": {
         "type": "choice",
@@ -880,11 +902,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_tax",
+    "id": "en_calc_tax",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 税前 10000，税率 10%，税后多少",
-    "query": "税前 10000，税率 10%，税后多少",
+    "state": "User query: Pre-tax 10000 with 10% tax — after-tax amount?",
+    "query": "Pre-tax 10000 with 10% tax — after-tax amount?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -920,11 +943,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_discount",
+    "id": "en_calc_discount",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 原价 899，打 85 折是多少",
-    "query": "原价 899，打 85 折是多少",
+    "state": "User query: Price 899 with 15% off — final price?",
+    "query": "Price 899 with 15% off — final price?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -960,11 +984,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_compound",
+    "id": "en_calc_interest",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 本金 5000，年利率 3%，一年后多少钱（单利）",
-    "query": "本金 5000，年利率 3%，一年后多少钱（单利）",
+    "state": "User query: Principal 5000 at 3% simple interest for one year",
+    "query": "Principal 5000 at 3% simple interest for one year",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1000,11 +1025,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_unit_arith",
+    "id": "en_calc_meter",
+    "lang": "en",
     "category": "calculator",
     "schema": "jev-like/v1",
-    "state": "User query: 3.2 公里等于多少米，直接算",
-    "query": "3.2 公里等于多少米，直接算",
+    "state": "User query: Convert 3.2 kilometers to meters (just compute)",
+    "query": "Convert 3.2 kilometers to meters (just compute)",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1040,11 +1066,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "search_weather",
+    "id": "en_search_weather",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 帮我查一下今天上海会不会下雨",
-    "query": "帮我查一下今天上海会不会下雨",
+    "state": "User query: Will it rain in Shanghai today? Look it up",
+    "query": "Will it rain in Shanghai today? Look it up",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1080,11 +1107,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "quantum_progress",
+    "id": "en_quantum",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 搜索一下量子计算最近有什么突破",
-    "query": "搜索一下量子计算最近有什么突破",
+    "state": "User query: Search recent breakthroughs in quantum computing",
+    "query": "Search recent breakthroughs in quantum computing",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1120,11 +1148,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "factoid",
+    "id": "en_crispr",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 什么是 CRISPR 基因编辑",
-    "query": "什么是 CRISPR 基因编辑",
+    "state": "User query: What is CRISPR gene editing?",
+    "query": "What is CRISPR gene editing?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1160,11 +1189,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "factoid2",
+    "id": "en_transformer",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 什么是变压器架构 Transformer",
-    "query": "什么是变压器架构 Transformer",
+    "state": "User query: What is the Transformer architecture?",
+    "query": "What is the Transformer architecture?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1200,11 +1230,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "news",
+    "id": "en_news",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 最新的全球科技新闻头条有哪些",
-    "query": "最新的全球科技新闻头条有哪些",
+    "state": "User query: What are today's top global tech headlines?",
+    "query": "What are today's top global tech headlines?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1240,11 +1271,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "who_is",
+    "id": "en_hinton",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 谁是图灵奖得主 Geoffrey Hinton",
-    "query": "谁是图灵奖得主 Geoffrey Hinton",
+    "state": "User query: Who is Turing Award winner Geoffrey Hinton?",
+    "query": "Who is Turing Award winner Geoffrey Hinton?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1280,11 +1312,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "stock",
+    "id": "en_stock",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 查一下今天上证指数收盘大概多少点",
-    "query": "查一下今天上证指数收盘大概多少点",
+    "state": "User query: What is roughly today's close for the S&P 500?",
+    "query": "What is roughly today's close for the S&P 500?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1320,11 +1353,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "weather_bj",
+    "id": "en_weather_nyc",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 北京明天最高气温多少度",
-    "query": "北京明天最高气温多少度",
+    "state": "User query: What's the high temperature in New York tomorrow?",
+    "query": "What's the high temperature in New York tomorrow?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1360,11 +1394,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "quantum_not_calc",
+    "id": "en_quantum_diff",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 量子计算和经典计算有什么区别",
-    "query": "量子计算和经典计算有什么区别",
+    "state": "User query: How does quantum computing differ from classical?",
+    "query": "How does quantum computing differ from classical?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1400,11 +1435,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "cloud_not_calc",
+    "id": "en_cloud",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 云计算有哪些主流服务商",
-    "query": "云计算有哪些主流服务商",
+    "state": "User query: Who are the major cloud service providers?",
+    "query": "Who are the major cloud service providers?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1440,11 +1476,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "how_to_public",
+    "id": "en_passport",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 如何申请护照需要哪些材料（公开信息）",
-    "query": "如何申请护照需要哪些材料（公开信息）",
+    "state": "User query: What documents are needed to apply for a US passport (public info)?",
+    "query": "What documents are needed to apply for a US passport (public info)?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1480,11 +1517,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "unit_convert_search",
+    "id": "en_mile",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 1 英里等于多少公里（查权威换算）",
-    "query": "1 英里等于多少公里（查权威换算）",
+    "state": "User query: How many kilometers in one mile? Cite an authority",
+    "query": "How many kilometers in one mile? Cite an authority",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1520,11 +1558,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "olympics",
+    "id": "en_olympics",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 最近一届夏季奥运会在哪举办的",
-    "query": "最近一届夏季奥运会在哪举办的",
+    "state": "User query: Where was the most recent Summer Olympics held?",
+    "query": "Where was the most recent Summer Olympics held?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1560,11 +1599,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "llm_release",
+    "id": "en_openai",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: OpenAI 最近发布了哪些主要模型（公开报道）",
-    "query": "OpenAI 最近发布了哪些主要模型（公开报道）",
+    "state": "User query: Which major models has OpenAI released recently (public reports)?",
+    "query": "Which major models has OpenAI released recently (public reports)?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1600,11 +1640,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "exchange_rate",
+    "id": "en_fx",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 查一下美元兑人民币今日大概汇率",
-    "query": "查一下美元兑人民币今日大概汇率",
+    "state": "User query: What's today's approximate USD to EUR rate?",
+    "query": "What's today's approximate USD to EUR rate?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1640,11 +1681,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "wiki_person",
+    "id": "en_turing",
+    "lang": "en",
     "category": "search",
     "schema": "jev-like/v1",
-    "state": "User query: 搜索一下图灵是谁，给个简介",
-    "query": "搜索一下图灵是谁，给个简介",
+    "state": "User query: Who was Alan Turing? Give a short public bio",
+    "query": "Who was Alan Turing? Give a short public bio",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1680,11 +1722,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_median",
+    "id": "en_code_median",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 用 Python 写一段代码求列表中位数",
-    "query": "用 Python 写一段代码求列表中位数",
+    "state": "User query: Write Python code to compute the median of a list",
+    "query": "Write Python code to compute the median of a list",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1720,11 +1763,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_sort",
+    "id": "en_code_sort",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 写一个 Python 快速排序函数",
-    "query": "写一个 Python 快速排序函数",
+    "state": "User query: Write a Python quicksort function",
+    "query": "Write a Python quicksort function",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1760,11 +1804,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_pandas",
+    "id": "en_code_pandas",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 用 pandas 把 CSV 按列求和并输出",
-    "query": "用 pandas 把 CSV 按列求和并输出",
+    "state": "User query: Use pandas to sum columns of a CSV and print them",
+    "query": "Use pandas to sum columns of a CSV and print them",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1800,11 +1845,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_vs_rag",
+    "id": "en_code_bfs_tree",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 帮我用代码实现二叉树层序遍历",
-    "query": "帮我用代码实现二叉树层序遍历",
+    "state": "User query: Implement level-order traversal of a binary tree in code",
+    "query": "Implement level-order traversal of a binary tree in code",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1840,11 +1886,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_debug",
+    "id": "en_code_debug",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 这段 Python 报错怎么修：list index out of range",
-    "query": "这段 Python 报错怎么修：list index out of range",
+    "state": "User query: How do I fix this Python error: list index out of range",
+    "query": "How do I fix this Python error: list index out of range",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1880,11 +1927,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_regex",
+    "id": "en_code_regex",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 用 Python 正则提取邮箱地址写个函数",
-    "query": "用 Python 正则提取邮箱地址写个函数",
+    "state": "User query: Write a Python function to extract emails with regex",
+    "query": "Write a Python function to extract emails with regex",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1920,11 +1968,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "plot_code",
+    "id": "en_code_plot",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 用 matplotlib 画一条正弦曲线的代码",
-    "query": "用 matplotlib 画一条正弦曲线的代码",
+    "state": "User query: Matplotlib code to plot a sine wave",
+    "query": "Matplotlib code to plot a sine wave",
     "questions": {
       "tool": {
         "type": "choice",
@@ -1960,11 +2009,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "sql_code",
+    "id": "en_code_sqlite",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 写一段 Python 连接 SQLite 并查询的示例",
-    "query": "写一段 Python 连接 SQLite 并查询的示例",
+    "state": "User query: Python example connecting to SQLite and running a query",
+    "query": "Python example connecting to SQLite and running a query",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2000,11 +2050,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_bfs",
+    "id": "en_code_bfs",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 用 Python 实现图的 BFS",
-    "query": "用 Python 实现图的 BFS",
+    "state": "User query: Implement BFS on a graph in Python",
+    "query": "Implement BFS on a graph in Python",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2040,11 +2091,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_json",
+    "id": "en_code_flatten",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 写个函数把嵌套 dict 展平成点号路径 key",
-    "query": "写个函数把嵌套 dict 展平成点号路径 key",
+    "state": "User query: Write a function to flatten a nested dict with dotted keys",
+    "query": "Write a function to flatten a nested dict with dotted keys",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2080,11 +2132,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_thread",
+    "id": "en_code_thread",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 给一个 Python 多线程下载文件的最小示例",
-    "query": "给一个 Python 多线程下载文件的最小示例",
+    "state": "User query: Minimal Python multithread file download example",
+    "query": "Minimal Python multithread file download example",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2120,11 +2173,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "code_test",
+    "id": "en_code_pytest",
+    "lang": "en",
     "category": "code",
     "schema": "jev-like/v1",
-    "state": "User query: 为加法函数写一个 pytest 用例示例",
-    "query": "为加法函数写一个 pytest 用例示例",
+    "state": "User query: Write a pytest case for an add(a, b) function",
+    "query": "Write a pytest case for an add(a, b) function",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2160,11 +2214,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_leave",
+    "id": "en_rag_leave",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 根据公司内部知识库，年假最多可以请几天？",
-    "query": "根据公司内部知识库，年假最多可以请几天？",
+    "state": "User query: Per our internal knowledge base, what's the max annual leave days?",
+    "query": "Per our internal knowledge base, what's the max annual leave days?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2200,11 +2255,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_expense",
+    "id": "en_rag_expense",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 查一下内部资料里的差旅报销流程",
-    "query": "查一下内部资料里的差旅报销流程",
+    "state": "User query: Look up the internal travel reimbursement process",
+    "query": "Look up the internal travel reimbursement process",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2240,11 +2296,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_policy",
+    "id": "en_rag_ot",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 员工手册里加班调休怎么算？",
-    "query": "员工手册里加班调休怎么算？",
+    "state": "User query: In the employee handbook, how is overtime time-off calculated?",
+    "query": "In the employee handbook, how is overtime time-off calculated?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2280,11 +2337,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_vs_search",
+    "id": "en_rag_attend",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 我们公司知识库里的考勤制度是什么",
-    "query": "我们公司知识库里的考勤制度是什么",
+    "state": "User query: What is our company attendance policy in the knowledge base?",
+    "query": "What is our company attendance policy in the knowledge base?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2320,11 +2378,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_onboard",
+    "id": "en_rag_laptop",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 内部入职须知里电脑领用流程是什么",
-    "query": "内部入职须知里电脑领用流程是什么",
+    "state": "User query: Internal onboarding: how do I request a laptop?",
+    "query": "Internal onboarding: how do I request a laptop?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2360,11 +2419,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_severance",
+    "id": "en_rag_exit",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 根据公司政策文档，离职交接清单有哪些",
-    "query": "根据公司政策文档，离职交接清单有哪些",
+    "state": "User query: From company policy docs, what is on the offboarding checklist?",
+    "query": "From company policy docs, what is on the offboarding checklist?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2400,11 +2460,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "internal_vpn",
+    "id": "en_rag_vpn",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 公司内网 VPN 开通流程在知识库哪一章",
-    "query": "公司内网 VPN 开通流程在知识库哪一章",
+    "state": "User query: Which chapter in the KB covers internal VPN setup?",
+    "query": "Which chapter in the KB covers internal VPN setup?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2440,11 +2501,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_benefit",
+    "id": "en_rag_meal",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 内部福利手册里餐补标准是多少",
-    "query": "内部福利手册里餐补标准是多少",
+    "state": "User query: What is the meal allowance in the internal benefits handbook?",
+    "query": "What is the meal allowance in the internal benefits handbook?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2480,11 +2542,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_security",
+    "id": "en_rag_usb",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 公司信息安全规范对 U 盘使用有什么要求",
-    "query": "公司信息安全规范对 U 盘使用有什么要求",
+    "state": "User query: What does our info-sec policy say about USB drives?",
+    "query": "What does our info-sec policy say about USB drives?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2520,11 +2583,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_meeting",
+    "id": "en_rag_room",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 会议室预约制度在内部文档哪一节",
-    "query": "会议室预约制度在内部文档哪一节",
+    "state": "User query: Where in internal docs is the meeting room booking policy?",
+    "query": "Where in internal docs is the meeting room booking policy?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2560,11 +2624,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_probation",
+    "id": "en_rag_probation",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 知识库里试用期考核流程怎么走",
-    "query": "知识库里试用期考核流程怎么走",
+    "state": "User query: KB: what is the probation review process?",
+    "query": "KB: what is the probation review process?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2600,11 +2665,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "rag_remote",
+    "id": "en_rag_remote",
+    "lang": "en",
     "category": "rag",
     "schema": "jev-like/v1",
-    "state": "User query: 内部远程办公政策允许每周居家几天",
-    "query": "内部远程办公政策允许每周居家几天",
+    "state": "User query: Internal remote-work policy: how many WFH days per week?",
+    "query": "Internal remote-work policy: how many WFH days per week?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2640,11 +2706,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "calc_after_ok",
+    "id": "en_calc_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 请计算 384 * 27 的结果\nTool result (status: OK):\n计算结果：10368",
-    "query": "请计算 384 * 27 的结果",
+    "state": "User query: Please compute 384 * 27\nTool result (status: OK):\nResult: 10368",
+    "query": "Please compute 384 * 27",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2699,18 +2766,19 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "计算结果：10368",
+    "tool_result": "Result: 10368",
     "history": [
       "calculator"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "percent_after_ok",
+    "id": "en_percent_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 85 的 20% 是多少，帮我算一下\nTool result (status: OK):\n计算结果：17",
-    "query": "85 的 20% 是多少，帮我算一下",
+    "state": "User query: What is 20% of 85? Calculate it\nTool result (status: OK):\nResult: 17",
+    "query": "What is 20% of 85? Calculate it",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2765,18 +2833,19 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "计算结果：17",
+    "tool_result": "Result: 17",
     "history": [
       "calculator"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "calc_expr_after_ok",
+    "id": "en_expr_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 算一下 (120-45)/5+8\nTool result (status: OK):\n计算结果：23",
-    "query": "算一下 (120-45)/5+8",
+    "state": "User query: Calculate (120-45)/5+8\nTool result (status: OK):\nResult: 23",
+    "query": "Calculate (120-45)/5+8",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2831,18 +2900,19 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "计算结果：23",
+    "tool_result": "Result: 23",
     "history": [
       "calculator"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "calc_pow_after_ok",
+    "id": "en_pow_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 计算 2 的 10 次方\nTool result (status: OK):\n计算结果：1024",
-    "query": "计算 2 的 10 次方",
+    "state": "User query: Compute 2 to the power of 10\nTool result (status: OK):\nResult: 1024",
+    "query": "Compute 2 to the power of 10",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2897,18 +2967,19 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "计算结果：1024",
+    "tool_result": "Result: 1024",
     "history": [
       "calculator"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "search_after_ok",
+    "id": "en_discount_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 帮我查一下今天上海会不会下雨\nTool result (status: OK):\n气象台摘要：上海今天多云转阴，降水概率 10%，基本不会下雨。",
-    "query": "帮我查一下今天上海会不会下雨",
+    "state": "User query: Price 899 with 15% off — final price?\nTool result (status: OK):\nResult: 764.15",
+    "query": "Price 899 with 15% off — final price?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -2963,18 +3034,19 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "气象台摘要：上海今天多云转阴，降水概率 10%，基本不会下雨。",
+    "tool_result": "Result: 764.15",
     "history": [
-      "web_search"
+      "calculator"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "factoid_after_ok",
+    "id": "en_search_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 什么是 CRISPR 基因编辑\nTool result (status: OK):\n百科摘要：CRISPR 是一种细菌免疫系统衍生的基因编辑技术，可精确切割 DNA。",
-    "query": "什么是 CRISPR 基因编辑",
+    "state": "User query: Will it rain in Shanghai today? Look it up\nTool result (status: OK):\nWeather brief: Shanghai cloudy, rain chance 10%, unlikely to rain.",
+    "query": "Will it rain in Shanghai today? Look it up",
     "questions": {
       "tool": {
         "type": "choice",
@@ -3029,18 +3101,19 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "百科摘要：CRISPR 是一种细菌免疫系统衍生的基因编辑技术，可精确切割 DNA。",
+    "tool_result": "Weather brief: Shanghai cloudy, rain chance 10%, unlikely to rain.",
     "history": [
       "web_search"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "mixed_after_search",
+    "id": "en_crispr_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 搜索一下北京今天气温\nTool result (status: OK):\n北京今天白天最高 22℃，夜间最低 12℃，空气质量良。",
-    "query": "搜索一下北京今天气温",
+    "state": "User query: What is CRISPR gene editing?\nTool result (status: OK):\nEncyclopedia: CRISPR is a gene-editing method derived from bacterial immune systems.",
+    "query": "What is CRISPR gene editing?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -3095,18 +3168,19 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "北京今天白天最高 22℃，夜间最低 12℃，空气质量良。",
+    "tool_result": "Encyclopedia: CRISPR is a gene-editing method derived from bacterial immune systems.",
     "history": [
       "web_search"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "news_after_ok",
+    "id": "en_nyc_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 最新的全球科技新闻头条有哪些\nTool result (status: OK):\n检索摘要：1) 新一代开源模型发布；2) 芯片制程突破报道；3) 卫星互联网商用进展。",
-    "query": "最新的全球科技新闻头条有哪些",
+    "state": "User query: What's the high temperature in New York tomorrow?\nTool result (status: OK):\nForecast: NYC tomorrow high 78°F / 26°C, partly cloudy.",
+    "query": "What's the high temperature in New York tomorrow?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -3161,18 +3235,153 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "检索摘要：1) 新一代开源模型发布；2) 芯片制程突破报道；3) 卫星互联网商用进展。",
+    "tool_result": "Forecast: NYC tomorrow high 78°F / 26°C, partly cloudy.",
     "history": [
       "web_search"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "code_after_ok",
+    "id": "en_news_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 用 Python 写一段代码求列表中位数\nTool result (status: OK):\n```python\ndef median(xs):\n    s=sorted(xs); n=len(s)\n    return s[n//2] if n%2 else (s[n//2-1]+s[n//2])/2\n```",
-    "query": "用 Python 写一段代码求列表中位数",
+    "state": "User query: What are today's top global tech headlines?\nTool result (status: OK):\nHeadlines: 1) New open model release 2) Chip process news 3) Satellite internet update.",
+    "query": "What are today's top global tech headlines?",
+    "questions": {
+      "tool": {
+        "type": "choice",
+        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
+        "criteria": {
+          "none": "STOP calling tools. A usable Tool result is already in the state.",
+          "calculator": "Numeric arithmetic / percentages / simple math expressions",
+          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
+        }
+      },
+      "sufficient": {
+        "type": "noul",
+        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
+        "criteria": {
+          "true": "Enough information to answer without more tools",
+          "false": "Needs a tool call or more information"
+        }
+      },
+      "credibility": {
+        "type": "score",
+        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
+        "criteria": [
+          "error/failure or completely irrelevant",
+          "mostly irrelevant or broken output",
+          "weakly related",
+          "partially useful but major gaps",
+          "somewhat relevant",
+          "moderately relevant",
+          "relevant with minor gaps",
+          "mostly correct and useful for the query",
+          "highly relevant and reliable",
+          "excellent match to the query",
+          "perfectly answers the user query"
+        ]
+      }
+    },
+    "answers": {
+      "tool": {
+        "choice": "none"
+      },
+      "sufficient": {
+        "noul": 1.0,
+        "label": true
+      },
+      "credibility": {
+        "score_min": 6,
+        "score_max": 10
+      }
+    },
+    "expected_tool": "none",
+    "expected_action": "answer",
+    "expected_sufficient": true,
+    "tool_result": "Headlines: 1) New open model release 2) Chip process news 3) Satellite internet update.",
+    "history": [
+      "web_search"
+    ],
+    "expected_score_min": 6
+  },
+  {
+    "id": "en_fx_after_ok",
+    "lang": "en",
+    "category": "after_tool",
+    "schema": "jev-like/v1",
+    "state": "User query: What's today's approximate USD to EUR rate?\nTool result (status: OK):\nFX brief: USD/EUR ≈ 0.92 (indicative only).",
+    "query": "What's today's approximate USD to EUR rate?",
+    "questions": {
+      "tool": {
+        "type": "choice",
+        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
+        "criteria": {
+          "none": "STOP calling tools. A usable Tool result is already in the state.",
+          "calculator": "Numeric arithmetic / percentages / simple math expressions",
+          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
+        }
+      },
+      "sufficient": {
+        "type": "noul",
+        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
+        "criteria": {
+          "true": "Enough information to answer without more tools",
+          "false": "Needs a tool call or more information"
+        }
+      },
+      "credibility": {
+        "type": "score",
+        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
+        "criteria": [
+          "error/failure or completely irrelevant",
+          "mostly irrelevant or broken output",
+          "weakly related",
+          "partially useful but major gaps",
+          "somewhat relevant",
+          "moderately relevant",
+          "relevant with minor gaps",
+          "mostly correct and useful for the query",
+          "highly relevant and reliable",
+          "excellent match to the query",
+          "perfectly answers the user query"
+        ]
+      }
+    },
+    "answers": {
+      "tool": {
+        "choice": "none"
+      },
+      "sufficient": {
+        "noul": 1.0,
+        "label": true
+      },
+      "credibility": {
+        "score_min": 6,
+        "score_max": 10
+      }
+    },
+    "expected_tool": "none",
+    "expected_action": "answer",
+    "expected_sufficient": true,
+    "tool_result": "FX brief: USD/EUR ≈ 0.92 (indicative only).",
+    "history": [
+      "web_search"
+    ],
+    "expected_score_min": 6
+  },
+  {
+    "id": "en_code_after_ok",
+    "lang": "en",
+    "category": "after_tool",
+    "schema": "jev-like/v1",
+    "state": "User query: Write Python code to compute the median of a list\nTool result (status: OK):\n```python\ndef median(xs):\n    s=sorted(xs); n=len(s)\n    return s[n//2] if n%2 else (s[n//2-1]+s[n//2])/2\n```",
+    "query": "Write Python code to compute the median of a list",
     "questions": {
       "tool": {
         "type": "choice",
@@ -3234,11 +3443,12 @@
     "expected_score_min": 6
   },
   {
-    "id": "code_sort_after_ok",
+    "id": "en_sort_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 写一个 Python 快速排序函数\nTool result (status: OK):\n```python\ndef qsort(a):\n    if len(a)<=1: return a\n    p=a[0]\n    return qsort([x for x in a[1:] if x<p])+[p]+qsort([x for x in a[1:] if x>=p])\n```",
-    "query": "写一个 Python 快速排序函数",
+    "state": "User query: Write a Python quicksort function\nTool result (status: OK):\n```python\ndef qsort(a):\n    if len(a)<=1: return a\n    p=a[0]\n    return qsort([x for x in a[1:] if x<p])+[p]+qsort([x for x in a[1:] if x>=p])\n```",
+    "query": "Write a Python quicksort function",
     "questions": {
       "tool": {
         "type": "choice",
@@ -3300,11 +3510,12 @@
     "expected_score_min": 6
   },
   {
-    "id": "plot_after_ok",
+    "id": "en_plot_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 用 matplotlib 画一条正弦曲线的代码\nTool result (status: OK):\n```python\nimport numpy as np, matplotlib.pyplot as plt\nx=np.linspace(0,2*np.pi,200)\nplt.plot(x,np.sin(x)); plt.show()\n```",
-    "query": "用 matplotlib 画一条正弦曲线的代码",
+    "state": "User query: Matplotlib code to plot a sine wave\nTool result (status: OK):\n```python\nimport numpy as np, matplotlib.pyplot as plt\nx=np.linspace(0,2*np.pi,200)\nplt.plot(x,np.sin(x)); plt.show()\n```",
+    "query": "Matplotlib code to plot a sine wave",
     "questions": {
       "tool": {
         "type": "choice",
@@ -3366,408 +3577,12 @@
     "expected_score_min": 6
   },
   {
-    "id": "rag_after_ok",
+    "id": "en_regex_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 根据公司内部知识库，年假最多可以请几天？\nTool result (status: OK):\n知识库命中：《员工手册》第 4.2 条：司龄满 1 年享有 5 天年假，满 10 年享有 15 天，单次申请不超过当年剩余额度。",
-    "query": "根据公司内部知识库，年假最多可以请几天？",
-    "questions": {
-      "tool": {
-        "type": "choice",
-        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
-        "criteria": {
-          "none": "STOP calling tools. A usable Tool result is already in the state.",
-          "calculator": "Numeric arithmetic / percentages / simple math expressions",
-          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
-        }
-      },
-      "sufficient": {
-        "type": "noul",
-        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
-        "criteria": {
-          "true": "Enough information to answer without more tools",
-          "false": "Needs a tool call or more information"
-        }
-      },
-      "credibility": {
-        "type": "score",
-        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
-        "criteria": [
-          "error/failure or completely irrelevant",
-          "mostly irrelevant or broken output",
-          "weakly related",
-          "partially useful but major gaps",
-          "somewhat relevant",
-          "moderately relevant",
-          "relevant with minor gaps",
-          "mostly correct and useful for the query",
-          "highly relevant and reliable",
-          "excellent match to the query",
-          "perfectly answers the user query"
-        ]
-      }
-    },
-    "answers": {
-      "tool": {
-        "choice": "none"
-      },
-      "sufficient": {
-        "noul": 1.0,
-        "label": true
-      },
-      "credibility": {
-        "score_min": 6,
-        "score_max": 10
-      }
-    },
-    "expected_tool": "none",
-    "expected_action": "answer",
-    "expected_sufficient": true,
-    "tool_result": "知识库命中：《员工手册》第 4.2 条：司龄满 1 年享有 5 天年假，满 10 年享有 15 天，单次申请不超过当年剩余额度。",
-    "history": [
-      "rag_retrieve"
-    ],
-    "expected_score_min": 6
-  },
-  {
-    "id": "rag_expense_after_ok",
-    "category": "after_tool",
-    "schema": "jev-like/v1",
-    "state": "User query: 查一下内部资料里的差旅报销流程\nTool result (status: OK):\n知识库：差旅报销需提交申请单→发票→行程单，财务 3 个工作日内审核。",
-    "query": "查一下内部资料里的差旅报销流程",
-    "questions": {
-      "tool": {
-        "type": "choice",
-        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
-        "criteria": {
-          "none": "STOP calling tools. A usable Tool result is already in the state.",
-          "calculator": "Numeric arithmetic / percentages / simple math expressions",
-          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
-        }
-      },
-      "sufficient": {
-        "type": "noul",
-        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
-        "criteria": {
-          "true": "Enough information to answer without more tools",
-          "false": "Needs a tool call or more information"
-        }
-      },
-      "credibility": {
-        "type": "score",
-        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
-        "criteria": [
-          "error/failure or completely irrelevant",
-          "mostly irrelevant or broken output",
-          "weakly related",
-          "partially useful but major gaps",
-          "somewhat relevant",
-          "moderately relevant",
-          "relevant with minor gaps",
-          "mostly correct and useful for the query",
-          "highly relevant and reliable",
-          "excellent match to the query",
-          "perfectly answers the user query"
-        ]
-      }
-    },
-    "answers": {
-      "tool": {
-        "choice": "none"
-      },
-      "sufficient": {
-        "noul": 1.0,
-        "label": true
-      },
-      "credibility": {
-        "score_min": 6,
-        "score_max": 10
-      }
-    },
-    "expected_tool": "none",
-    "expected_action": "answer",
-    "expected_sufficient": true,
-    "tool_result": "知识库：差旅报销需提交申请单→发票→行程单，财务 3 个工作日内审核。",
-    "history": [
-      "rag_retrieve"
-    ],
-    "expected_score_min": 6
-  },
-  {
-    "id": "rag_vpn_after_ok",
-    "category": "after_tool",
-    "schema": "jev-like/v1",
-    "state": "User query: 公司内网 VPN 开通流程在知识库哪一章\nTool result (status: OK):\n知识库：《IT 服务手册》第 6 章：提交工单→主管审批→IT 开通，通常 1 个工作日。",
-    "query": "公司内网 VPN 开通流程在知识库哪一章",
-    "questions": {
-      "tool": {
-        "type": "choice",
-        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
-        "criteria": {
-          "none": "STOP calling tools. A usable Tool result is already in the state.",
-          "calculator": "Numeric arithmetic / percentages / simple math expressions",
-          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
-        }
-      },
-      "sufficient": {
-        "type": "noul",
-        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
-        "criteria": {
-          "true": "Enough information to answer without more tools",
-          "false": "Needs a tool call or more information"
-        }
-      },
-      "credibility": {
-        "type": "score",
-        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
-        "criteria": [
-          "error/failure or completely irrelevant",
-          "mostly irrelevant or broken output",
-          "weakly related",
-          "partially useful but major gaps",
-          "somewhat relevant",
-          "moderately relevant",
-          "relevant with minor gaps",
-          "mostly correct and useful for the query",
-          "highly relevant and reliable",
-          "excellent match to the query",
-          "perfectly answers the user query"
-        ]
-      }
-    },
-    "answers": {
-      "tool": {
-        "choice": "none"
-      },
-      "sufficient": {
-        "noul": 1.0,
-        "label": true
-      },
-      "credibility": {
-        "score_min": 6,
-        "score_max": 10
-      }
-    },
-    "expected_tool": "none",
-    "expected_action": "answer",
-    "expected_sufficient": true,
-    "tool_result": "知识库：《IT 服务手册》第 6 章：提交工单→主管审批→IT 开通，通常 1 个工作日。",
-    "history": [
-      "rag_retrieve"
-    ],
-    "expected_score_min": 6
-  },
-  {
-    "id": "multi_turn_enough",
-    "category": "after_tool",
-    "schema": "jev-like/v1",
-    "state": "User query: 刚才算出来的结果再解释一下含义\nContext: 上一轮计算器结果：56088\nTool result (status: OK):\n计算结果：56088",
-    "query": "刚才算出来的结果再解释一下含义",
-    "questions": {
-      "tool": {
-        "type": "choice",
-        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
-        "criteria": {
-          "none": "STOP calling tools. A usable Tool result is already in the state.",
-          "calculator": "Numeric arithmetic / percentages / simple math expressions",
-          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
-        }
-      },
-      "sufficient": {
-        "type": "noul",
-        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
-        "criteria": {
-          "true": "Enough information to answer without more tools",
-          "false": "Needs a tool call or more information"
-        }
-      },
-      "credibility": {
-        "type": "score",
-        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
-        "criteria": [
-          "error/failure or completely irrelevant",
-          "mostly irrelevant or broken output",
-          "weakly related",
-          "partially useful but major gaps",
-          "somewhat relevant",
-          "moderately relevant",
-          "relevant with minor gaps",
-          "mostly correct and useful for the query",
-          "highly relevant and reliable",
-          "excellent match to the query",
-          "perfectly answers the user query"
-        ]
-      }
-    },
-    "answers": {
-      "tool": {
-        "choice": "none"
-      },
-      "sufficient": {
-        "noul": 1.0,
-        "label": true
-      },
-      "credibility": {
-        "score_min": 5,
-        "score_max": 10
-      }
-    },
-    "expected_tool": "none",
-    "expected_action": "answer",
-    "expected_sufficient": true,
-    "tool_result": "计算结果：56088",
-    "history": [
-      "calculator"
-    ],
-    "context": "上一轮计算器结果：56088",
-    "expected_score_min": 5
-  },
-  {
-    "id": "calc_discount_after_ok",
-    "category": "after_tool",
-    "schema": "jev-like/v1",
-    "state": "User query: 原价 899，打 85 折是多少\nTool result (status: OK):\n计算结果：764.15",
-    "query": "原价 899，打 85 折是多少",
-    "questions": {
-      "tool": {
-        "type": "choice",
-        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
-        "criteria": {
-          "none": "STOP calling tools. A usable Tool result is already in the state.",
-          "calculator": "Numeric arithmetic / percentages / simple math expressions",
-          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
-        }
-      },
-      "sufficient": {
-        "type": "noul",
-        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
-        "criteria": {
-          "true": "Enough information to answer without more tools",
-          "false": "Needs a tool call or more information"
-        }
-      },
-      "credibility": {
-        "type": "score",
-        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
-        "criteria": [
-          "error/failure or completely irrelevant",
-          "mostly irrelevant or broken output",
-          "weakly related",
-          "partially useful but major gaps",
-          "somewhat relevant",
-          "moderately relevant",
-          "relevant with minor gaps",
-          "mostly correct and useful for the query",
-          "highly relevant and reliable",
-          "excellent match to the query",
-          "perfectly answers the user query"
-        ]
-      }
-    },
-    "answers": {
-      "tool": {
-        "choice": "none"
-      },
-      "sufficient": {
-        "noul": 1.0,
-        "label": true
-      },
-      "credibility": {
-        "score_min": 6,
-        "score_max": 10
-      }
-    },
-    "expected_tool": "none",
-    "expected_action": "answer",
-    "expected_sufficient": true,
-    "tool_result": "计算结果：764.15",
-    "history": [
-      "calculator"
-    ],
-    "expected_score_min": 6
-  },
-  {
-    "id": "weather_bj_after_ok",
-    "category": "after_tool",
-    "schema": "jev-like/v1",
-    "state": "User query: 北京明天最高气温多少度\nTool result (status: OK):\n预报：北京明天最高气温 26℃，最低 15℃，晴转多云。",
-    "query": "北京明天最高气温多少度",
-    "questions": {
-      "tool": {
-        "type": "choice",
-        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
-        "criteria": {
-          "none": "STOP calling tools. A usable Tool result is already in the state.",
-          "calculator": "Numeric arithmetic / percentages / simple math expressions",
-          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
-        }
-      },
-      "sufficient": {
-        "type": "noul",
-        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
-        "criteria": {
-          "true": "Enough information to answer without more tools",
-          "false": "Needs a tool call or more information"
-        }
-      },
-      "credibility": {
-        "type": "score",
-        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
-        "criteria": [
-          "error/failure or completely irrelevant",
-          "mostly irrelevant or broken output",
-          "weakly related",
-          "partially useful but major gaps",
-          "somewhat relevant",
-          "moderately relevant",
-          "relevant with minor gaps",
-          "mostly correct and useful for the query",
-          "highly relevant and reliable",
-          "excellent match to the query",
-          "perfectly answers the user query"
-        ]
-      }
-    },
-    "answers": {
-      "tool": {
-        "choice": "none"
-      },
-      "sufficient": {
-        "noul": 1.0,
-        "label": true
-      },
-      "credibility": {
-        "score_min": 6,
-        "score_max": 10
-      }
-    },
-    "expected_tool": "none",
-    "expected_action": "answer",
-    "expected_sufficient": true,
-    "tool_result": "预报：北京明天最高气温 26℃，最低 15℃，晴转多云。",
-    "history": [
-      "web_search"
-    ],
-    "expected_score_min": 6
-  },
-  {
-    "id": "code_regex_after_ok",
-    "category": "after_tool",
-    "schema": "jev-like/v1",
-    "state": "User query: 用 Python 正则提取邮箱地址写个函数\nTool result (status: OK):\n```python\nimport re\ndef emails(s): return re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', s)\n```",
-    "query": "用 Python 正则提取邮箱地址写个函数",
+    "state": "User query: Write a Python function to extract emails with regex\nTool result (status: OK):\n```python\nimport re\ndef emails(s): return re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', s)\n```",
+    "query": "Write a Python function to extract emails with regex",
     "questions": {
       "tool": {
         "type": "choice",
@@ -3829,11 +3644,12 @@
     "expected_score_min": 6
   },
   {
-    "id": "rag_remote_after_ok",
+    "id": "en_rag_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 内部远程办公政策允许每周居家几天\nTool result (status: OK):\n知识库：《远程办公指引》：经主管同意，每周最多居家 2 天，核心协作日需到岗。",
-    "query": "内部远程办公政策允许每周居家几天",
+    "state": "User query: Per our internal knowledge base, what's the max annual leave days?\nTool result (status: OK):\nKB hit: Employee Handbook §4.2 — 5 days after 1 year; 15 days after 10 years.",
+    "query": "Per our internal knowledge base, what's the max annual leave days?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -3888,18 +3704,19 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "知识库：《远程办公指引》：经主管同意，每周最多居家 2 天，核心协作日需到岗。",
+    "tool_result": "KB hit: Employee Handbook §4.2 — 5 days after 1 year; 15 days after 10 years.",
     "history": [
       "rag_retrieve"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "search_exchange_after_ok",
+    "id": "en_expense_after_ok",
+    "lang": "en",
     "category": "after_tool",
     "schema": "jev-like/v1",
-    "state": "User query: 查一下美元兑人民币今日大概汇率\nTool result (status: OK):\n行情摘要：USD/CNY 约 7.24（仅供参考，非交易报价）。",
-    "query": "查一下美元兑人民币今日大概汇率",
+    "state": "User query: Look up the internal travel reimbursement process\nTool result (status: OK):\nKB: submit form → receipts → itinerary; finance reviews within 3 business days.",
+    "query": "Look up the internal travel reimbursement process",
     "questions": {
       "tool": {
         "type": "choice",
@@ -3954,18 +3771,288 @@
     "expected_tool": "none",
     "expected_action": "answer",
     "expected_sufficient": true,
-    "tool_result": "行情摘要：USD/CNY 约 7.24（仅供参考，非交易报价）。",
+    "tool_result": "KB: submit form → receipts → itinerary; finance reviews within 3 business days.",
+    "history": [
+      "rag_retrieve"
+    ],
+    "expected_score_min": 6
+  },
+  {
+    "id": "en_vpn_after_ok",
+    "lang": "en",
+    "category": "after_tool",
+    "schema": "jev-like/v1",
+    "state": "User query: Which chapter in the KB covers internal VPN setup?\nTool result (status: OK):\nKB: IT Service Manual ch.6 — ticket → manager approve → IT provision (~1 day).",
+    "query": "Which chapter in the KB covers internal VPN setup?",
+    "questions": {
+      "tool": {
+        "type": "choice",
+        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
+        "criteria": {
+          "none": "STOP calling tools. A usable Tool result is already in the state.",
+          "calculator": "Numeric arithmetic / percentages / simple math expressions",
+          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
+        }
+      },
+      "sufficient": {
+        "type": "noul",
+        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
+        "criteria": {
+          "true": "Enough information to answer without more tools",
+          "false": "Needs a tool call or more information"
+        }
+      },
+      "credibility": {
+        "type": "score",
+        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
+        "criteria": [
+          "error/failure or completely irrelevant",
+          "mostly irrelevant or broken output",
+          "weakly related",
+          "partially useful but major gaps",
+          "somewhat relevant",
+          "moderately relevant",
+          "relevant with minor gaps",
+          "mostly correct and useful for the query",
+          "highly relevant and reliable",
+          "excellent match to the query",
+          "perfectly answers the user query"
+        ]
+      }
+    },
+    "answers": {
+      "tool": {
+        "choice": "none"
+      },
+      "sufficient": {
+        "noul": 1.0,
+        "label": true
+      },
+      "credibility": {
+        "score_min": 6,
+        "score_max": 10
+      }
+    },
+    "expected_tool": "none",
+    "expected_action": "answer",
+    "expected_sufficient": true,
+    "tool_result": "KB: IT Service Manual ch.6 — ticket → manager approve → IT provision (~1 day).",
+    "history": [
+      "rag_retrieve"
+    ],
+    "expected_score_min": 6
+  },
+  {
+    "id": "en_remote_after_ok",
+    "lang": "en",
+    "category": "after_tool",
+    "schema": "jev-like/v1",
+    "state": "User query: Internal remote-work policy: how many WFH days per week?\nTool result (status: OK):\nKB: Remote Work Guide — up to 2 WFH days/week with manager approval.",
+    "query": "Internal remote-work policy: how many WFH days per week?",
+    "questions": {
+      "tool": {
+        "type": "choice",
+        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
+        "criteria": {
+          "none": "STOP calling tools. A usable Tool result is already in the state.",
+          "calculator": "Numeric arithmetic / percentages / simple math expressions",
+          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
+        }
+      },
+      "sufficient": {
+        "type": "noul",
+        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
+        "criteria": {
+          "true": "Enough information to answer without more tools",
+          "false": "Needs a tool call or more information"
+        }
+      },
+      "credibility": {
+        "type": "score",
+        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
+        "criteria": [
+          "error/failure or completely irrelevant",
+          "mostly irrelevant or broken output",
+          "weakly related",
+          "partially useful but major gaps",
+          "somewhat relevant",
+          "moderately relevant",
+          "relevant with minor gaps",
+          "mostly correct and useful for the query",
+          "highly relevant and reliable",
+          "excellent match to the query",
+          "perfectly answers the user query"
+        ]
+      }
+    },
+    "answers": {
+      "tool": {
+        "choice": "none"
+      },
+      "sufficient": {
+        "noul": 1.0,
+        "label": true
+      },
+      "credibility": {
+        "score_min": 6,
+        "score_max": 10
+      }
+    },
+    "expected_tool": "none",
+    "expected_action": "answer",
+    "expected_sufficient": true,
+    "tool_result": "KB: Remote Work Guide — up to 2 WFH days/week with manager approval.",
+    "history": [
+      "rag_retrieve"
+    ],
+    "expected_score_min": 6
+  },
+  {
+    "id": "en_multi_turn",
+    "lang": "en",
+    "category": "after_tool",
+    "schema": "jev-like/v1",
+    "state": "User query: Explain what that calculated number means\nContext: Previous calculator result: 56088\nTool result (status: OK):\nResult: 56088",
+    "query": "Explain what that calculated number means",
+    "questions": {
+      "tool": {
+        "type": "choice",
+        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
+        "criteria": {
+          "none": "STOP calling tools. A usable Tool result is already in the state.",
+          "calculator": "Numeric arithmetic / percentages / simple math expressions",
+          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
+        }
+      },
+      "sufficient": {
+        "type": "noul",
+        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
+        "criteria": {
+          "true": "Enough information to answer without more tools",
+          "false": "Needs a tool call or more information"
+        }
+      },
+      "credibility": {
+        "type": "score",
+        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
+        "criteria": [
+          "error/failure or completely irrelevant",
+          "mostly irrelevant or broken output",
+          "weakly related",
+          "partially useful but major gaps",
+          "somewhat relevant",
+          "moderately relevant",
+          "relevant with minor gaps",
+          "mostly correct and useful for the query",
+          "highly relevant and reliable",
+          "excellent match to the query",
+          "perfectly answers the user query"
+        ]
+      }
+    },
+    "answers": {
+      "tool": {
+        "choice": "none"
+      },
+      "sufficient": {
+        "noul": 1.0,
+        "label": true
+      },
+      "credibility": {
+        "score_min": 5,
+        "score_max": 10
+      }
+    },
+    "expected_tool": "none",
+    "expected_action": "answer",
+    "expected_sufficient": true,
+    "tool_result": "Result: 56088",
+    "history": [
+      "calculator"
+    ],
+    "context": "Previous calculator result: 56088",
+    "expected_score_min": 5
+  },
+  {
+    "id": "en_temp_after_ok",
+    "lang": "en",
+    "category": "after_tool",
+    "schema": "jev-like/v1",
+    "state": "User query: Search today's temperature in Beijing\nTool result (status: OK):\nBeijing today: high 22°C, low 12°C, air quality good.",
+    "query": "Search today's temperature in Beijing",
+    "questions": {
+      "tool": {
+        "type": "choice",
+        "instructions": "A Tool result is ALREADY present in the state. If it answers or substantially helps the user query, choose 'none'. Only pick another tool if the result is missing, wrong, or an error.",
+        "criteria": {
+          "none": "STOP calling tools. A usable Tool result is already in the state.",
+          "calculator": "Numeric arithmetic / percentages / simple math expressions",
+          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
+        }
+      },
+      "sufficient": {
+        "type": "noul",
+        "instructions": "A Tool result is present and not marked FAILED. Is it enough to answer the user query without more tools?",
+        "criteria": {
+          "true": "Enough information to answer without more tools",
+          "false": "Needs a tool call or more information"
+        }
+      },
+      "credibility": {
+        "type": "score",
+        "instructions": "Score how well the Tool result answers the User query. Errors/quota failures -> 0-2. Correct useful results -> 7-10.",
+        "criteria": [
+          "error/failure or completely irrelevant",
+          "mostly irrelevant or broken output",
+          "weakly related",
+          "partially useful but major gaps",
+          "somewhat relevant",
+          "moderately relevant",
+          "relevant with minor gaps",
+          "mostly correct and useful for the query",
+          "highly relevant and reliable",
+          "excellent match to the query",
+          "perfectly answers the user query"
+        ]
+      }
+    },
+    "answers": {
+      "tool": {
+        "choice": "none"
+      },
+      "sufficient": {
+        "noul": 1.0,
+        "label": true
+      },
+      "credibility": {
+        "score_min": 6,
+        "score_max": 10
+      }
+    },
+    "expected_tool": "none",
+    "expected_action": "answer",
+    "expected_sufficient": true,
+    "tool_result": "Beijing today: high 22°C, low 12°C, air quality good.",
     "history": [
       "web_search"
     ],
     "expected_score_min": 6
   },
   {
-    "id": "search_after_fail",
+    "id": "en_search_fail",
+    "lang": "en",
     "category": "after_tool_fail",
     "schema": "jev-like/v1",
-    "state": "User query: 帮我查一下今天上海会不会下雨\nTool result (status: FAILED):\nerror: search quota exceeded",
-    "query": "帮我查一下今天上海会不会下雨",
+    "state": "User query: Will it rain in Shanghai today? Look it up\nTool result (status: FAILED):\nerror: search quota exceeded",
+    "query": "Will it rain in Shanghai today? Look it up",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4028,11 +4115,12 @@
     "expected_score_max": 4
   },
   {
-    "id": "calc_fail_retry",
+    "id": "en_calc_fail",
+    "lang": "en",
     "category": "after_tool_fail",
     "schema": "jev-like/v1",
-    "state": "User query: 计算 999/0\nTool result (status: FAILED):\nerror: division by zero",
-    "query": "计算 999/0",
+    "state": "User query: Compute 999/0\nTool result (status: FAILED):\nerror: division by zero",
+    "query": "Compute 999/0",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4095,11 +4183,12 @@
     "expected_score_max": 4
   },
   {
-    "id": "code_fail_retry",
+    "id": "en_code_fail",
+    "lang": "en",
     "category": "after_tool_fail",
     "schema": "jev-like/v1",
-    "state": "User query: 用 Python 写快速排序\nTool result (status: FAILED):\nerror: interpreter timeout",
-    "query": "用 Python 写快速排序",
+    "state": "User query: Write a Python quicksort\nTool result (status: FAILED):\nerror: interpreter timeout",
+    "query": "Write a Python quicksort",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4162,11 +4251,12 @@
     "expected_score_max": 4
   },
   {
-    "id": "rag_fail_retry",
+    "id": "en_rag_fail",
+    "lang": "en",
     "category": "after_tool_fail",
     "schema": "jev-like/v1",
-    "state": "User query: 根据公司知识库查福利补贴\nTool result (status: FAILED):\nerror: retrieval index unavailable",
-    "query": "根据公司知识库查福利补贴",
+    "state": "User query: Look up benefits in the company knowledge base\nTool result (status: FAILED):\nerror: retrieval index unavailable",
+    "query": "Look up benefits in the company knowledge base",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4229,11 +4319,12 @@
     "expected_score_max": 4
   },
   {
-    "id": "search_fail_timeout",
+    "id": "en_search_timeout",
+    "lang": "en",
     "category": "after_tool_fail",
     "schema": "jev-like/v1",
-    "state": "User query: 搜索一下量子计算最近有什么突破\nTool result (status: FAILED):\nerror: upstream timeout",
-    "query": "搜索一下量子计算最近有什么突破",
+    "state": "User query: Search recent breakthroughs in quantum computing\nTool result (status: FAILED):\nerror: upstream timeout",
+    "query": "Search recent breakthroughs in quantum computing",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4296,11 +4387,12 @@
     "expected_score_max": 4
   },
   {
-    "id": "calc_fail_overflow",
+    "id": "en_calc_overflow",
+    "lang": "en",
     "category": "after_tool_fail",
     "schema": "jev-like/v1",
-    "state": "User query: 计算 10 ** 100000\nTool result (status: FAILED):\nerror: numeric overflow",
-    "query": "计算 10 ** 100000",
+    "state": "User query: Compute 10 ** 100000\nTool result (status: FAILED):\nerror: numeric overflow",
+    "query": "Compute 10 ** 100000",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4363,11 +4455,12 @@
     "expected_score_max": 4
   },
   {
-    "id": "code_fail_syntax",
+    "id": "en_code_syntax",
+    "lang": "en",
     "category": "after_tool_fail",
     "schema": "jev-like/v1",
-    "state": "User query: 用 pandas 把 CSV 按列求和并输出\nTool result (status: FAILED):\nerror: SyntaxError: unexpected EOF",
-    "query": "用 pandas 把 CSV 按列求和并输出",
+    "state": "User query: Use pandas to sum columns of a CSV and print them\nTool result (status: FAILED):\nerror: SyntaxError: unexpected EOF",
+    "query": "Use pandas to sum columns of a CSV and print them",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4430,11 +4523,12 @@
     "expected_score_max": 4
   },
   {
-    "id": "rag_fail_empty",
+    "id": "en_rag_empty",
+    "lang": "en",
     "category": "after_tool_fail",
     "schema": "jev-like/v1",
-    "state": "User query: 员工手册里加班调休怎么算？\nTool result (status: FAILED):\nerror: no documents matched",
-    "query": "员工手册里加班调休怎么算？",
+    "state": "User query: In the employee handbook, how is overtime time-off calculated?\nTool result (status: FAILED):\nerror: no documents matched",
+    "query": "In the employee handbook, how is overtime time-off calculated?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4497,131 +4591,12 @@
     "expected_score_max": 4
   },
   {
-    "id": "mixed_en_calc",
-    "category": "mixed",
+    "id": "en_edge_philosophy",
+    "lang": "en",
+    "category": "edge",
     "schema": "jev-like/v1",
-    "state": "User query: Please compute 45 * 18 for me",
-    "query": "Please compute 45 * 18 for me",
-    "questions": {
-      "tool": {
-        "type": "choice",
-        "instructions": "Pick the single next tool for an AI agent. Use 'none' for greetings/thanks/simple chat/translation with no tool needed. Use 'calculator' only for numeric arithmetic. Use 'code_interpreter' to write/run Python or algorithms. Use 'web_search' for public facts, news, weather, definitions. Use 'rag_retrieve' only for internal/company knowledge-base documents.",
-        "criteria": {
-          "none": "Greetings, thanks, chitchat, translation, or opinion — no tool needed",
-          "calculator": "Numeric arithmetic / percentages / simple math expressions",
-          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
-        }
-      },
-      "sufficient": {
-        "type": "noul",
-        "instructions": "No tool result yet. Is the user query answerable from the query alone (greetings, thanks, simple translation)? If it needs calc/search/code/docs, false.",
-        "criteria": {
-          "true": "Enough information to answer without more tools",
-          "false": "Needs a tool call or more information"
-        }
-      }
-    },
-    "answers": {
-      "tool": {
-        "choice": "calculator"
-      },
-      "sufficient": {
-        "noul": 0.0,
-        "label": false
-      }
-    },
-    "expected_tool": "calculator",
-    "expected_action": "call_tool",
-    "expected_sufficient": false
-  },
-  {
-    "id": "mixed_en_search",
-    "category": "mixed",
-    "schema": "jev-like/v1",
-    "state": "User query: What is the capital of Australia? Look it up if needed.",
-    "query": "What is the capital of Australia? Look it up if needed.",
-    "questions": {
-      "tool": {
-        "type": "choice",
-        "instructions": "Pick the single next tool for an AI agent. Use 'none' for greetings/thanks/simple chat/translation with no tool needed. Use 'calculator' only for numeric arithmetic. Use 'code_interpreter' to write/run Python or algorithms. Use 'web_search' for public facts, news, weather, definitions. Use 'rag_retrieve' only for internal/company knowledge-base documents.",
-        "criteria": {
-          "none": "Greetings, thanks, chitchat, translation, or opinion — no tool needed",
-          "calculator": "Numeric arithmetic / percentages / simple math expressions",
-          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
-        }
-      },
-      "sufficient": {
-        "type": "noul",
-        "instructions": "No tool result yet. Is the user query answerable from the query alone (greetings, thanks, simple translation)? If it needs calc/search/code/docs, false.",
-        "criteria": {
-          "true": "Enough information to answer without more tools",
-          "false": "Needs a tool call or more information"
-        }
-      }
-    },
-    "answers": {
-      "tool": {
-        "choice": "web_search"
-      },
-      "sufficient": {
-        "noul": 0.0,
-        "label": false
-      }
-    },
-    "expected_tool": "web_search",
-    "expected_action": "call_tool",
-    "expected_sufficient": false
-  },
-  {
-    "id": "mixed_code_en",
-    "category": "mixed",
-    "schema": "jev-like/v1",
-    "state": "User query: Write a Python function to reverse a linked list",
-    "query": "Write a Python function to reverse a linked list",
-    "questions": {
-      "tool": {
-        "type": "choice",
-        "instructions": "Pick the single next tool for an AI agent. Use 'none' for greetings/thanks/simple chat/translation with no tool needed. Use 'calculator' only for numeric arithmetic. Use 'code_interpreter' to write/run Python or algorithms. Use 'web_search' for public facts, news, weather, definitions. Use 'rag_retrieve' only for internal/company knowledge-base documents.",
-        "criteria": {
-          "none": "Greetings, thanks, chitchat, translation, or opinion — no tool needed",
-          "calculator": "Numeric arithmetic / percentages / simple math expressions",
-          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
-          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
-          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
-        }
-      },
-      "sufficient": {
-        "type": "noul",
-        "instructions": "No tool result yet. Is the user query answerable from the query alone (greetings, thanks, simple translation)? If it needs calc/search/code/docs, false.",
-        "criteria": {
-          "true": "Enough information to answer without more tools",
-          "false": "Needs a tool call or more information"
-        }
-      }
-    },
-    "answers": {
-      "tool": {
-        "choice": "code_interpreter"
-      },
-      "sufficient": {
-        "noul": 0.0,
-        "label": false
-      }
-    },
-    "expected_tool": "code_interpreter",
-    "expected_action": "call_tool",
-    "expected_sufficient": false
-  },
-  {
-    "id": "mixed_direct_en",
-    "category": "mixed",
-    "schema": "jev-like/v1",
-    "state": "User query: Thanks a lot, that was helpful!",
-    "query": "Thanks a lot, that was helpful!",
+    "state": "User query: What really is time?",
+    "query": "What really is time?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4657,11 +4632,135 @@
     "expected_sufficient": true
   },
   {
-    "id": "mixed_rag_zh_en",
-    "category": "mixed",
+    "id": "en_edge_public_not_rag",
+    "lang": "en",
+    "category": "edge",
     "schema": "jev-like/v1",
-    "state": "User query: Check our internal KB: what is the probation review process?",
-    "query": "Check our internal KB: what is the probation review process?",
+    "state": "User query: Where is WHO headquarters? Use public sources.",
+    "query": "Where is WHO headquarters? Use public sources.",
+    "questions": {
+      "tool": {
+        "type": "choice",
+        "instructions": "Pick the single next tool for an AI agent. Use 'none' for greetings/thanks/simple chat/translation with no tool needed. Use 'calculator' only for numeric arithmetic. Use 'code_interpreter' to write/run Python or algorithms. Use 'web_search' for public facts, news, weather, definitions. Use 'rag_retrieve' only for internal/company knowledge-base documents.",
+        "criteria": {
+          "none": "Greetings, thanks, chitchat, translation, or opinion — no tool needed",
+          "calculator": "Numeric arithmetic / percentages / simple math expressions",
+          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
+        }
+      },
+      "sufficient": {
+        "type": "noul",
+        "instructions": "No tool result yet. Is the user query answerable from the query alone (greetings, thanks, simple translation)? If it needs calc/search/code/docs, false.",
+        "criteria": {
+          "true": "Enough information to answer without more tools",
+          "false": "Needs a tool call or more information"
+        }
+      }
+    },
+    "answers": {
+      "tool": {
+        "choice": "web_search"
+      },
+      "sufficient": {
+        "noul": 0.0,
+        "label": false
+      }
+    },
+    "expected_tool": "web_search",
+    "expected_action": "call_tool",
+    "expected_sufficient": false
+  },
+  {
+    "id": "en_edge_calc_word",
+    "lang": "en",
+    "category": "edge",
+    "schema": "jev-like/v1",
+    "state": "User query: Please multiply three by seven point five",
+    "query": "Please multiply three by seven point five",
+    "questions": {
+      "tool": {
+        "type": "choice",
+        "instructions": "Pick the single next tool for an AI agent. Use 'none' for greetings/thanks/simple chat/translation with no tool needed. Use 'calculator' only for numeric arithmetic. Use 'code_interpreter' to write/run Python or algorithms. Use 'web_search' for public facts, news, weather, definitions. Use 'rag_retrieve' only for internal/company knowledge-base documents.",
+        "criteria": {
+          "none": "Greetings, thanks, chitchat, translation, or opinion — no tool needed",
+          "calculator": "Numeric arithmetic / percentages / simple math expressions",
+          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
+        }
+      },
+      "sufficient": {
+        "type": "noul",
+        "instructions": "No tool result yet. Is the user query answerable from the query alone (greetings, thanks, simple translation)? If it needs calc/search/code/docs, false.",
+        "criteria": {
+          "true": "Enough information to answer without more tools",
+          "false": "Needs a tool call or more information"
+        }
+      }
+    },
+    "answers": {
+      "tool": {
+        "choice": "calculator"
+      },
+      "sufficient": {
+        "noul": 0.0,
+        "label": false
+      }
+    },
+    "expected_tool": "calculator",
+    "expected_action": "call_tool",
+    "expected_sufficient": false
+  },
+  {
+    "id": "en_edge_code_not_search",
+    "lang": "en",
+    "category": "edge",
+    "schema": "jev-like/v1",
+    "state": "User query: Implement bubble sort in Python",
+    "query": "Implement bubble sort in Python",
+    "questions": {
+      "tool": {
+        "type": "choice",
+        "instructions": "Pick the single next tool for an AI agent. Use 'none' for greetings/thanks/simple chat/translation with no tool needed. Use 'calculator' only for numeric arithmetic. Use 'code_interpreter' to write/run Python or algorithms. Use 'web_search' for public facts, news, weather, definitions. Use 'rag_retrieve' only for internal/company knowledge-base documents.",
+        "criteria": {
+          "none": "Greetings, thanks, chitchat, translation, or opinion — no tool needed",
+          "calculator": "Numeric arithmetic / percentages / simple math expressions",
+          "web_search": "Public facts, news, weather, definitions, who-is, live web info",
+          "code_interpreter": "Write/run Python, algorithms, pandas, plots, debugging code",
+          "rag_retrieve": "Internal/company knowledge-base, handbook, HR/policy documents"
+        }
+      },
+      "sufficient": {
+        "type": "noul",
+        "instructions": "No tool result yet. Is the user query answerable from the query alone (greetings, thanks, simple translation)? If it needs calc/search/code/docs, false.",
+        "criteria": {
+          "true": "Enough information to answer without more tools",
+          "false": "Needs a tool call or more information"
+        }
+      }
+    },
+    "answers": {
+      "tool": {
+        "choice": "code_interpreter"
+      },
+      "sufficient": {
+        "noul": 0.0,
+        "label": false
+      }
+    },
+    "expected_tool": "code_interpreter",
+    "expected_action": "call_tool",
+    "expected_sufficient": false
+  },
+  {
+    "id": "en_edge_internal",
+    "lang": "en",
+    "category": "edge",
+    "schema": "jev-like/v1",
+    "state": "User query: Internal policy: can probation end early?",
+    "query": "Internal policy: can probation end early?",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4697,11 +4796,12 @@
     "expected_sufficient": false
   },
   {
-    "id": "mixed_prefer_search_not_rag",
-    "category": "mixed",
+    "id": "en_edge_thanks",
+    "lang": "en",
+    "category": "edge",
     "schema": "jev-like/v1",
-    "state": "User query: 公开资料里，世界卫生组织总部在哪个城市",
-    "query": "公开资料里，世界卫生组织总部在哪个城市",
+    "state": "User query: Really appreciate it — that fixed my issue",
+    "query": "Really appreciate it — that fixed my issue",
     "questions": {
       "tool": {
         "type": "choice",
@@ -4725,15 +4825,15 @@
     },
     "answers": {
       "tool": {
-        "choice": "web_search"
+        "choice": "none"
       },
       "sufficient": {
-        "noul": 0.0,
-        "label": false
+        "noul": 1.0,
+        "label": true
       }
     },
-    "expected_tool": "web_search",
-    "expected_action": "call_tool",
-    "expected_sufficient": false
+    "expected_tool": "none",
+    "expected_action": "answer",
+    "expected_sufficient": true
   }
 ]

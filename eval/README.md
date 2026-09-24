@@ -1,22 +1,37 @@
-# Gold traces schema (JEV-like)
+# Gold traces schema (JEV-like, bilingual)
 
-Aligned with the typed-decision style in [`temple.txt`](temple.txt)
-(OpenRouter / typesafe JEV `state` + `questions` with `choice` / `noul` / `score`).
+Aligned with [`temple.txt`](temple.txt) (OpenRouter / JEV `state` + `questions`).
 
-Each item in [`traces.json`](traces.json):
+| File | Language | Size |
+|------|----------|------|
+| [`traces.zh.json`](traces.zh.json) | Chinese | n=100 |
+| [`traces.en.json`](traces.en.json) | English | n=100 |
+
+Packaged copies live under `src/laya_thalamus/resources/` (must stay identical).
+
+### Item fields
 
 | Field | Meaning |
 |-------|---------|
-| `state` | Full decision context (user query + optional tool result / context) |
-| `questions` | Typed questions: `tool` (choice), `sufficient` (noul), optional `credibility` (score) |
-| `answers` | Gold labels (`tool.choice`, `sufficient`, optional score band) |
-| `query` / `expected_*` | Flat mirrors for `thalamus compare` / `evaluate_items` |
-| `category` | `direct` · `calculator` · `search` · `code` · `rag` · `after_tool` · `after_tool_fail` · `mixed` |
+| `lang` | `zh` or `en` |
+| `state` | Full decision context |
+| `questions` | `tool` (choice) · `sufficient` (noul) · optional `credibility` (score) |
+| `answers` | Gold labels |
+| `query` / `expected_*` | Flat mirrors for `evaluate_items` |
+| `category` | `direct` · `calculator` · `search` · `code` · `rag` · `after_tool` · `after_tool_fail` · `edge` |
 
-Regenerate (maintainers):
+### Usage
+
+```bash
+thalamus compare --lang zh --with-fallback --skip-llm
+thalamus compare --lang en --with-fallback --skip-llm
+python eval/run_eval.py --lang en --backend mock
+```
+
+Default packaged language is **zh** (`LAYA_TRACES_LANG=en` to override).
+
+Regenerate:
 
 ```bash
 python eval/_gen_traces_jev.py
 ```
-
-Keep `eval/traces.json` and `src/laya_thalamus/resources/traces.json` identical.

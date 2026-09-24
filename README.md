@@ -50,9 +50,14 @@ print(d.selected_tool, d.action, d.summary())
 
 ## Benchmarks
 
-Gold set **n=100** (JEV-like `state` / `questions` / `answers`; incl. post-tool turns). Same data for every row.
+Gold set **n=100 × 2** (Chinese + English; JEV-like `state` / `questions` / `answers`; incl. post-tool turns).
 
-> Benchmark numbers below were measured on the previous **n=56** slice; re-run `thalamus compare --with-fallback` after upgrading the gold set to refresh.
+```bash
+thalamus compare --lang zh --with-fallback --skip-llm
+thalamus compare --lang en --with-fallback --skip-llm
+```
+
+> Benchmark numbers below were measured on an earlier **n=56** Chinese slice; re-run compare on `traces.zh.json` / `traces.en.json` to refresh.
 
 | Backend | Tool Acc | CPU latency | GPU | Role |
 |---------|---------:|------------:|:---:|------|
@@ -228,7 +233,7 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 1. Read [API.md](API.md) + [POLICY.md](POLICY.md)  
 2. `pip install -e ".[dev]"` → `pytest -q`  
-3. Keep `eval/traces.json` ↔ `src/laya_thalamus/resources/traces.json` in sync (JEV-like n=100; see `eval/README.md`)
+3. Keep `eval/traces.zh.json` + `eval/traces.en.json` in sync with `src/laya_thalamus/resources/` (see `eval/README.md`)
 4. Don’t break `AgentRouter.route` signatures  
 
 ---

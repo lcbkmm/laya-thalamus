@@ -1,6 +1,6 @@
 # Upstream JEV / OpenRouter typed-decision API example (reference template).
 # Our gold set mirrors this shape: state + questions{choice|noul|score} + answers.
-# See eval/README.md and eval/traces.json (n=100).
+# See eval/README.md and traces.zh.json / traces.en.json (n=100 each).
 import requests
 import json
 

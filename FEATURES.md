@@ -13,7 +13,7 @@
 6. 同步 / 异步 HTTP API（`/route` `/health` `/batch` `/config` `/tools` `/models/*` `/metrics/prometheus`）
 7. 结构化 JSON 决策日志 + Prometheus 风格 metrics
 8. Demo：minimal / vLLM / LangChain / OpenAI / AgentSession / LLM 降级 / probe
-9. 评测：人工金标 `traces.json`（n=100，JEV-like choice/noul/score）+ `thalamus compare`（随包发布）
+9. 评测：人工金标 `traces.zh.json` / `traces.en.json`（各 n=100，JEV-like）+ `thalamus compare --lang zh|en`
 10. YAML 配置（含 `fallback.llm` / `cache` / `logging.otel`）
 11. Extras：`[api]` / `[llm]` / `[laya]` / `[otel]` / `[dev]` / `[all]`
 12. 集成：`integrations` + OpenAI/JSON Schema ↔ ToolSpec

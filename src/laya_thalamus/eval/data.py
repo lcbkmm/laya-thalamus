@@ -1,38 +1,40 @@
-"""Locate / load the packaged gold traces dataset.
+"""Locate / load packaged gold traces (bilingual).
 
-Trace items follow a **JEV-like** schema (see ``eval/temple.txt`` / OpenRouter decisions API):
+Files:
+- ``traces.zh.json`` — Chinese gold set (n=100)
+- ``traces.en.json`` — English gold set (n=100)
 
-- ``state``: full decision context string
-- ``questions``: typed ``choice`` / ``noul`` / ``score`` specs with criteria
-- ``answers``: gold labels (``tool.choice``, ``sufficient``, optional ``credibility``)
+Each item is **JEV-like** (see ``eval/temple.txt``):
 
-Flat fields (``query``, ``expected_tool``, …) are kept or derived so
-``evaluate_items`` keeps working unchanged.
+- ``state`` / ``questions`` (choice · noul · score) / ``answers``
+- Flat ``query`` / ``expected_*`` for ``evaluate_items``
 """
 
 from __future__ import annotations
 
 import json
+import os
 from importlib import resources
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
+
+Lang = Literal["zh", "en"]
+DEFAULT_LANG: Lang = "zh"
 
 
-def _traces_ref():
-    return resources.files("laya_thalamus").joinpath("resources", "traces.json")
+def _traces_ref(lang: Lang = DEFAULT_LANG):
+    name = f"traces.{lang}.json"
+    return resources.files("laya_thalamus").joinpath("resources", name)
 
 
-def default_traces_path() -> Path:
-    """Filesystem path to packaged ``traces.json`` when available on disk.
-
-    Prefer :func:`load_default_traces` for reading -that works from wheels too.
-    """
-    ref = _traces_ref()
+def default_traces_path(lang: Lang = DEFAULT_LANG) -> Path:
+    """Filesystem path to packaged traces when available on disk."""
+    ref = _traces_ref(lang)
     with resources.as_file(ref) as path:
         resolved = Path(path).resolve()
     if not resolved.exists():
         raise FileNotFoundError(
-            "packaged traces.json not found; reinstall laya-thalamus "
+            f"packaged {ref.name} not found; reinstall laya-thalamus "
             "or pass --dataset explicitly"
         )
     return resolved
@@ -82,7 +84,6 @@ def normalize_trace(item: dict[str, Any]) -> dict[str, Any]:
                 and "score" in cred
                 and isinstance(cred["score"], (int, float))
             ):
-                # point label → accept ±1 band
                 s = float(cred["score"])
                 row["expected_score_min"] = max(0.0, s - 1.0)
                 row.setdefault("expected_score_max", min(10.0, s + 1.0))
@@ -102,7 +103,6 @@ def normalize_trace(item: dict[str, Any]) -> dict[str, Any]:
     if "expected_tool" not in row:
         raise ValueError(f"trace {row.get('id')!r} missing expected_tool/answers.tool")
 
-    # Default action from tool label when omitted
     if "expected_action" not in row:
         if row["expected_tool"] in (None, "none"):
             row["expected_action"] = "answer"
@@ -112,13 +112,26 @@ def normalize_trace(item: dict[str, Any]) -> dict[str, Any]:
     return row
 
 
-def load_default_traces() -> list[dict[str, Any]]:
-    raw = json.loads(_traces_ref().read_text(encoding="utf-8"))
+def resolve_lang(lang: str | None = None) -> Lang:
+    raw = (lang or os.environ.get("LAYA_TRACES_LANG") or DEFAULT_LANG).lower()
+    if raw not in ("zh", "en"):
+        raise ValueError(f"lang must be 'zh' or 'en', got {lang!r}")
+    return raw  # type: ignore[return-value]
+
+
+def load_default_traces(lang: str | None = None) -> list[dict[str, Any]]:
+    resolved = resolve_lang(lang)
+    raw = json.loads(_traces_ref(resolved).read_text(encoding="utf-8"))
     return [normalize_trace(x) for x in raw]
 
 
-def load_traces(path: str | Path | None = None) -> list[dict[str, Any]]:
+def load_traces(
+    path: str | Path | None = None,
+    *,
+    lang: str | None = None,
+) -> list[dict[str, Any]]:
+    """Load gold traces from a path, or packaged ``traces.{zh|en}.json``."""
     if path is None:
-        return load_default_traces()
+        return load_default_traces(lang=lang)
     raw = json.loads(Path(path).read_text(encoding="utf-8"))
     return [normalize_trace(x) for x in raw]

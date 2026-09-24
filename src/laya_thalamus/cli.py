@@ -33,6 +33,12 @@ def main(argv: list[str] | None = None) -> int:
 
     p_compare = sub.add_parser("compare", help="Compare backends on gold traces")
     p_compare.add_argument("--dataset", default=None, help="Gold JSON (default: packaged)")
+    p_compare.add_argument(
+        "--lang",
+        default="zh",
+        choices=["zh", "en"],
+        help="Packaged gold language when --dataset omitted",
+    )
     p_compare.add_argument("--out", default="compare_report.json")
     p_compare.add_argument("--config", default=None)
     p_compare.add_argument("--model", default=None, help="Local/HF Laya weights")
@@ -75,6 +81,8 @@ def main(argv: list[str] | None = None) -> int:
         argv2: list[str] = []
         if args.dataset:
             argv2 += ["--dataset", args.dataset]
+        if getattr(args, "lang", None):
+            argv2 += ["--lang", args.lang]
         if args.out:
             argv2 += ["--out", args.out]
         if args.config:

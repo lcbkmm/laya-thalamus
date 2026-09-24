@@ -50,9 +50,14 @@ print(d.selected_tool, d.action, d.summary())
 
 ## 实测评测
 
-人工金标 **n=100**（JEV 风格 `state` / `questions` / `answers`；含工具后多轮）。同一数据集对比。
+人工金标 **中英各 n=100**（JEV 风格 `state` / `questions` / `answers`；含工具后多轮）。
 
-> 下方延迟/准确率表仍为旧版 **n=56** 实测；升级金标后请用 `thalamus compare --with-fallback` 重跑刷新。
+```bash
+thalamus compare --lang zh --with-fallback --skip-llm
+thalamus compare --lang en --with-fallback --skip-llm
+```
+
+> 下方延迟/准确率表仍为旧版 **n=56** 中文实测；请对 `traces.zh.json` / `traces.en.json` 重跑 compare 刷新。
 
 | Backend | Tool Acc | CPU 延迟 | GPU | 角色 |
 |---------|---------:|---------:|:---:|------|
@@ -228,7 +233,7 @@ PyPI `laya-thalamus` · import `laya_thalamus` · CLI `thalamus` / `laya-thalamu
 
 1. 读 [API.md](API.md) + [POLICY.md](POLICY.md)  
 2. `pip install -e ".[dev]"` → `pytest -q`  
-3. 同步 `eval/traces.json` ↔ `src/laya_thalamus/resources/traces.json`（JEV 风格 n=100；见 `eval/README.md`）
+3. 同步 `eval/traces.zh.json` + `eval/traces.en.json` 与 `src/laya_thalamus/resources/`（见 `eval/README.md`）
 4. 不破坏 `AgentRouter.route` 签名  
 
 ---

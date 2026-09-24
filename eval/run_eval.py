@@ -1,10 +1,12 @@
 """
-评测：对人工标注集跑柝一?backend?
-默认关闭 fallback，靿兝「mock 评测冝被 heuristic 救回来〝造戝虚高?
-用法::
+Eval one backend on the gold set (fallback off by default).
+
+Usage::
+
     python eval/run_eval.py --backend mock
-    python eval/run_eval.py --dataset eval/traces.json --backend mock
-    thalamus compare --skip-llm   # pip 安装坎的对比入坣
+    python eval/run_eval.py --lang en --backend mock
+    python eval/run_eval.py --dataset eval/traces.zh.json --backend mock
+    thalamus compare --lang zh --skip-llm
 """
 
 from __future__ import annotations
@@ -25,7 +27,13 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument(
         "--dataset",
         default=None,
-        help="Gold JSON path (default: packaged traces.json)",
+        help="Gold JSON path (default: packaged traces.{lang}.json)",
+    )
+    ap.add_argument(
+        "--lang",
+        default="zh",
+        choices=["zh", "en"],
+        help="Packaged gold language when --dataset is omitted",
     )
     ap.add_argument(
         "--backend",
@@ -52,8 +60,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = ap.parse_args(argv)
 
-    data = load_traces(args.dataset)
-    dataset_label = Path(args.dataset).name if args.dataset else "traces.json (packaged)"
+    data = load_traces(args.dataset, lang=args.lang)
+    if args.dataset:
+        dataset_label = Path(args.dataset).name
+    else:
+        dataset_label = f"traces.{args.lang}.json (packaged)"
     cfg = load_config(args.config) if args.config else load_config()
     cfg.model.backend = args.backend
     if args.model:
@@ -69,6 +80,7 @@ def main(argv: list[str] | None = None) -> int:
     report = evaluate_items(router, data)
     errors = report.pop("errors")
     report["dataset"] = dataset_label
+    report["lang"] = args.lang if not args.dataset else None
     report["fallback_enabled"] = not args.no_fallback
     report["model"] = cfg.model.name
     report["metrics"] = router.metrics()
@@ -82,8 +94,8 @@ def main(argv: list[str] | None = None) -> int:
             f.write(json.dumps(e, ensure_ascii=False) + "\n")
 
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    print(f"\nWrote report ->{out}")
-    print(f"Wrote errors ->{err_path} ({len(errors)} cases)")
+    print(f"\nWrote report -> {out}")
+    print(f"Wrote errors -> {err_path} ({len(errors)} cases)")
     if router.backend.name == "mock":
         print(
             "\nNOTE: backend=mock is a keyword heuristic. "

@@ -163,7 +163,13 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument(
         "--dataset",
         default=None,
-        help="Gold JSON path (default: packaged traces.json)",
+        help="Gold JSON path (default: packaged traces.{lang}.json)",
+    )
+    ap.add_argument(
+        "--lang",
+        default="zh",
+        choices=["zh", "en"],
+        help="Packaged gold language when --dataset is omitted (default: zh)",
     )
     ap.add_argument(
         "--out",
@@ -203,8 +209,11 @@ def main(argv: list[str] | None = None) -> int:
     if args.fallback_only:
         args.with_fallback = True
 
-    data = load_traces(args.dataset)
-    dataset_label = Path(args.dataset).name if args.dataset else "traces.json (packaged)"
+    data = load_traces(args.dataset, lang=args.lang)
+    if args.dataset:
+        dataset_label = Path(args.dataset).name
+    else:
+        dataset_label = f"traces.{args.lang}.json (packaged)"
     print(f"[dataset] {dataset_label} n={len(data)}")
 
     device_tag = (args.device or "auto").lower()
