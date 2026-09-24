@@ -26,8 +26,10 @@ Powered by [Laya](https://github.com/NandhaKishorM/laya) · Fast local routing �
 
 ## Install
 
+> Not on PyPI yet — install from GitHub:
+
 ```bash
-pip install "laya-thalamus[laya]"
+pip install "laya-thalamus[laya] @ git+https://github.com/lcbkmm/laya-thalamus.git"
 ```
 
 ```python
@@ -118,9 +120,9 @@ Outputs **routing decisions only** — never the final answer text.
 ## Quick start
 
 ```bash
-pip install "laya-thalamus[laya]"    # real System-1 (recommended)
-# pip install laya-thalamus          # library only
-# pip install "laya-thalamus[api]"   # HTTP server
+pip install "laya-thalamus[laya] @ git+https://github.com/lcbkmm/laya-thalamus.git"   # real System-1 (recommended)
+# pip install "laya-thalamus @ git+https://github.com/lcbkmm/laya-thalamus.git"        # library only
+# pip install "laya-thalamus[api] @ git+https://github.com/lcbkmm/laya-thalamus.git"   # HTTP server
 ```
 
 ```python
