@@ -1,4 +1,4 @@
-"""CLI: thalamus serve | demo | health | probe-laya | compare."""
+"""CLI: thalamus serve | demo | health | probe-laya | compare | finetune."""
 
 from __future__ import annotations
 
@@ -58,6 +58,33 @@ def main(argv: list[str] | None = None) -> int:
         help="Only Laya+fallback (skip bare Laya)",
     )
 
+    p_ft = sub.add_parser(
+        "finetune",
+        help="Fine-tune Laya on gold traces (needs [laya] extra)",
+    )
+    p_ft.add_argument(
+        "--dataset",
+        required=True,
+        help="Gold JSON (state/questions/answers), e.g. eval/traces.zh.json",
+    )
+    p_ft.add_argument(
+        "--base-model",
+        default="convaiinnovations/laya-multilingual",
+        help="HF id or local Laya checkpoint",
+    )
+    p_ft.add_argument("--subfolder", default=None)
+    p_ft.add_argument("--output", "-o", default="./checkpoints/finetuned")
+    p_ft.add_argument("--device", default="auto")
+    p_ft.add_argument("--epochs", type=int, default=3)
+    p_ft.add_argument("--micro-batch", type=int, default=4)
+    p_ft.add_argument("--grad-accum", type=int, default=4)
+    p_ft.add_argument("--group-size", type=int, default=4)
+    p_ft.add_argument("--lr-encoder", type=float, default=2.5e-5)
+    p_ft.add_argument("--lr-head", type=float, default=1.0e-4)
+    p_ft.add_argument("--max-items", type=int, default=0)
+    p_ft.add_argument("--seed", type=int, default=42)
+    p_ft.add_argument("--ce-weight", type=float, default=1.0)
+
     args = parser.parse_args(argv)
 
     if args.cmd == "serve":
@@ -104,6 +131,41 @@ def main(argv: list[str] | None = None) -> int:
         if getattr(args, "fallback_only", False):
             argv2.append("--fallback-only")
         return compare_main(argv2)
+
+    if args.cmd == "finetune":
+        from laya_thalamus.train.cli import main as finetune_main
+
+        argv2 = [
+            "--dataset",
+            args.dataset,
+            "--base-model",
+            args.base_model,
+            "--output",
+            args.output,
+            "--device",
+            args.device,
+            "--epochs",
+            str(args.epochs),
+            "--micro-batch",
+            str(args.micro_batch),
+            "--grad-accum",
+            str(args.grad_accum),
+            "--group-size",
+            str(args.group_size),
+            "--lr-encoder",
+            str(args.lr_encoder),
+            "--lr-head",
+            str(args.lr_head),
+            "--max-items",
+            str(args.max_items),
+            "--seed",
+            str(args.seed),
+            "--ce-weight",
+            str(args.ce_weight),
+        ]
+        if args.subfolder:
+            argv2 += ["--subfolder", args.subfolder]
+        return finetune_main(argv2)
 
     from laya_thalamus.config import load_config
     from laya_thalamus.router import AgentRouter

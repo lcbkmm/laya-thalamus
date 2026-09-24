@@ -15,15 +15,16 @@
 8. Demo：minimal / vLLM / LangChain / OpenAI / AgentSession / LLM 降级 / probe
 9. 评测：人工金标 `traces.zh.json` / `traces.en.json`（各 n=100，JEV-like）+ `python eval/compare_jev_laya.py`（JEV vs Laya）/ `thalamus compare --lang zh|en`
 10. YAML 配置（含 `fallback.llm` / `cache` / `logging.otel`）
-11. Extras：`[api]` / `[llm]` / `[laya]` / `[otel]` / `[dev]` / `[all]`
+11. Extras：`[api]` / `[llm]` / `[laya]` / `[train]` / `[otel]` / `[dev]` / `[all]`
 12. 集成：`integrations` + OpenAI/JSON Schema ↔ ToolSpec
 13. 会话：`session_id`、`decision_id`、幂等、决策缓存
 14. 发布成熟度：版本单一来源、`API.md`、CHANGELOG、CI 3.10-3.12
 15. 生产可靠性：`aroute`、POLICY 超时降级契约、OTel
+16. 微调：`thalamus finetune`（金标 `state`/`questions`/`answers` → Laya RLCD 检查点）
 
 ## V2（未做）
 
 - Web 可视化监控面板
 - 多实例业务隔离
 - 跨进程决策缓存（进程内 TTL 已有）
-- 微调脚本 / 多语言专项
+- 多语言专项数据扩增 / 云端训练编排

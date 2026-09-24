@@ -37,6 +37,12 @@ Default packaged language is **zh** (`LAYA_TRACES_LANG=en` to override).
 
 Latest numbers: [`compare_jev_laya_report.json`](compare_jev_laya_report.json) · [`compare_laya_english_report.json`](compare_laya_english_report.json) (summarized in root README).
 
+Fine-tune on these traces:
+
+```bash
+thalamus finetune --dataset eval/traces.zh.json -o ./checkpoints/my-router --epochs 3
+```
+
 Regenerate:
 
 ```bash

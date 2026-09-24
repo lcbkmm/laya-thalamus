@@ -97,6 +97,27 @@ thalamus compare --lang en --with-fallback --skip-llm
 
 ---
 
+## 微调
+
+用自有 JEV 风格金标（`state` + `questions` + `answers`）做 RLCD 微调（与上游 typed-decisions notebook 同配方）。
+
+```bash
+pip install "laya-thalamus[laya]"
+
+thalamus finetune \
+  --dataset eval/traces.zh.json \
+  --base-model convaiinnovations/laya-multilingual \
+  --output ./checkpoints/my-router \
+  --epochs 3 --device cuda
+
+thalamus probe-laya --model ./checkpoints/my-router
+thalamus compare --model ./checkpoints/my-router --lang zh --skip-llm
+```
+
+再把 YAML 里 `model.name` 指到 `./checkpoints/my-router`。建议 GPU；CPU 可用 `--max-items 32 --epochs 1` 做冒烟。
+
+---
+
 ## 解决什么痛点
 
 | 痛点 | 没有 Thalamus | 有 Thalamus |
@@ -182,6 +203,7 @@ d = AgentSession(router).next(query)
 thalamus demo --backend mock
 thalamus probe-laya --model /path/to/LAYA
 thalamus compare --with-fallback --skip-llm
+thalamus finetune --dataset eval/traces.zh.json -o ./checkpoints/my-router
 thalamus serve --port 8080                 # 需 [api]
 ```
 

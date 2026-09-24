@@ -97,6 +97,27 @@ thalamus compare --lang en --with-fallback --skip-llm
 
 ---
 
+## Fine-tune
+
+Specialize Laya on your own JEV-like gold traces (`state` + `questions` + `answers`) with RLCD (same recipe as the upstream typed-decisions notebook).
+
+```bash
+pip install "laya-thalamus[laya]"   # needs torch via laya
+
+thalamus finetune \
+  --dataset eval/traces.zh.json \
+  --base-model convaiinnovations/laya-multilingual \
+  --output ./checkpoints/my-router \
+  --epochs 3 --device cuda
+
+thalamus probe-laya --model ./checkpoints/my-router
+thalamus compare --model ./checkpoints/my-router --lang zh --skip-llm
+```
+
+Then point `model.name` in YAML at `./checkpoints/my-router`. Prefer GPU; CPU works for tiny smoke runs (`--max-items 32 --epochs 1`).
+
+---
+
 ## Why Thalamus
 
 | Pain | Without | With Thalamus |
@@ -182,6 +203,7 @@ d = AgentSession(router).next(query)
 thalamus demo --backend mock
 thalamus probe-laya --model /path/to/LAYA
 thalamus compare --with-fallback --skip-llm
+thalamus finetune --dataset eval/traces.zh.json -o ./checkpoints/my-router
 thalamus serve --port 8080                 # needs [api]
 ```
 

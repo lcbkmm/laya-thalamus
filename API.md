@@ -35,7 +35,7 @@ Import from `laya_thalamus.integrations`:
 ### CLI (stable commands)
 
 ```text
-thalamus serve | demo | health | probe-laya | compare
+thalamus serve | demo | health | probe-laya | compare | finetune
 ```
 
 `serve` requires the `[api]` extra. `probe-laya` / `compare` use packaged code
@@ -52,6 +52,7 @@ signatures, and layout as private:
 - `laya_thalamus.fallback`, `llm`, `circuit`, `context`, `hooks`
 - `laya_thalamus.idempotency`, `extras`, `logging_util`
 - `laya_thalamus.eval.*` (eval helpers may move; CLI `compare` is the supported entry)
+- `laya_thalamus.train.*` (fine-tune helpers may move; CLI `finetune` is the supported entry)
 - `laya_thalamus.api` (HTTP shapes may evolve; install `[api]` knowing this)
 - `laya_thalamus.probe` (prefer `thalamus probe-laya`)
 - Private helpers prefixed with `_`

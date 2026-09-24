@@ -15,6 +15,7 @@ for the **stable public API** listed in [API.md](API.md).
 
 ### Added
 
+- `thalamus finetune`: RLCD fine-tune on JEV-like gold traces → Laya-native checkpoint
 - Async `AgentRouter.aroute` / `aroute_request` and async FastAPI endpoints
 - Decision cache (`cache.enabled` / TTL fingerprint of query+tools)
 - [POLICY.md](POLICY.md) timeout/degrade contract + unit test matrix

@@ -4,8 +4,11 @@ __pycache__/
 .eggs/
 dist/
 build/
-.venv/
+.eval/
 venv/
+
+# Fine-tune outputs
+checkpoints/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
